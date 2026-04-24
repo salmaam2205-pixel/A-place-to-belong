@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Place to Belong</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-logo">🐾 A Place to Belong</div>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="gallery.html">Tiere</a></li>
+      <li><a href="#">Spenden</a></li>
+      <li><a href="#">Kontakt</a></li>
+    </ul>
+    <a href="gallery.html" class="nav-cta">Jetzt adoptieren</a>
+    <button class="burger" aria-label="Menu">&#9776;</button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-image-wrap">
+      <img src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=1400&q=80" alt="Hund und Katze zusammen" class="hero-img" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <span class="hero-tag">Tierheim Plattform</span>
+      <h1 class="hero-title">Jedes Tier verdient<br /><em>ein Zuhause.</em></h1>
+      <p class="hero-sub">Finde deinen neuen besten Freund und gib einem Tier eine zweite Chance auf ein glückliches Leben.</p>
+      <div class="hero-actions">
+        <a href="gallery.html" class="btn btn-primary">Tiere entdecken</a>
+        <a href="#" class="btn btn-outline">Mehr erfahren</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats">
+    <div class="stat-item">
+      <span class="stat-num">320+</span>
+      <span class="stat-label">Tiere vermittelt</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <span class="stat-num">15</span>
+      <span class="stat-label">Tierheime</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <span class="stat-num">98%</span>
+      <span class="stat-label">Zufriedene Adopter</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <span class="stat-num">5★</span>
+      <span class="stat-label">Bewertung</span>
+    </div>
+  </section>
+
+  <!-- FEATURED ANIMALS -->
+  <section class="featured">
+    <div class="section-header">
+      <span class="section-tag">Warte auf dich</span>
+      <h2 class="section-title">Hervorgehobene Tiere</h2>
+      <p class="section-sub">Diese besonderen Tiere suchen dringend ein liebevolles Zuhause.</p>
+    </div>
+
+    <div class="cards-grid">
+
+      <article class="animal-card">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600&q=80" alt="Buddy" />
+          <span class="card-badge">Hund</span>
+          <div class="card-hover-info">
+            <a href="#" class="btn-card">Profil ansehen</a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-name">Buddy</span>
+            <span class="card-age">2 Jahre</span>
+          </div>
+          <p class="card-breed">Beagle · Mittelgroß</p>
+          <p class="card-desc">Sehr süß, liebt es gestreichelt zu werden. Versteht sich gut mit Kindern.</p>
+          <div class="card-tags">
+            <span class="tag">🏠 Kinderfreundlich</span>
+            <span class="tag">🐱 Katzenfreundlich</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="animal-card featured-card">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600&q=80" alt="Mina" />
+          <span class="card-badge">Katze</span>
+          <span class="card-badge-special">⭐ Beliebt</span>
+          <div class="card-hover-info">
+            <a href="#" class="btn-card">Profil ansehen</a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-name">Mina</span>
+            <span class="card-age">4 Monate</span>
+          </div>
+          <p class="card-breed">Hauskatze · Schwarz</p>
+          <p class="card-desc">Sehr süß, liebt es gestreichelt zu werden. Ruhiges Temperament.</p>
+          <div class="card-tags">
+            <span class="tag">🌿 Ruhig</span>
+            <span class="tag">🏠 Wohnungskatze</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="animal-card">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1558788353-f76d92427f16?w=600&q=80" alt="Aragorn" />
+          <span class="card-badge">Hund</span>
+          <div class="card-hover-info">
+            <a href="#" class="btn-card">Profil ansehen</a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-name">Aragorn</span>
+            <span class="card-age">3 Jahre</span>
+          </div>
+          <p class="card-breed">Mischling · Groß</p>
+          <p class="card-desc">Aktiv und verspielt, liebt lange Spaziergänge und neue Abenteuer.</p>
+          <div class="card-tags">
+            <span class="tag">🏃 Aktiv</span>
+            <span class="tag">🌲 Naturliebhaber</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="featured-cta">
+      <a href="gallery.html" class="btn btn-primary">Alle Tiere ansehen →</a>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-it-works">
+    <div class="hiw-bg"></div>
+    <div class="section-header light">
+      <span class="section-tag">Einfach & schnell</span>
+      <h2 class="section-title">Wie funktioniert es?</h2>
+    </div>
+    <div class="hiw-steps">
+      <div class="hiw-step">
+        <div class="step-icon">🔍</div>
+        <h3>1. Suchen</h3>
+        <p>Durchsuche unsere Galerie mit Filtern nach Art, Alter, Größe und Kompatibilität.</p>
+      </div>
+      <div class="hiw-arrow">→</div>
+      <div class="hiw-step">
+        <div class="step-icon">❤️</div>
+        <h3>2. Verlieben</h3>
+        <p>Lies das Profil deines Wunschtiers und lerne seinen Charakter kennen.</p>
+      </div>
+      <div class="hiw-arrow">→</div>
+      <div class="hiw-step">
+        <div class="step-icon">📋</div>
+        <h3>3. Anfragen</h3>
+        <p>Fülle das Adoptionsformular aus — wir melden uns schnellstmöglich bei dir.</p>
+      </div>
+      <div class="hiw-arrow">→</div>
+      <div class="hiw-step">
+        <div class="step-icon">🏡</div>
+        <h3>4. Willkommen</h3>
+        <p>Heiß dein neues Familienmitglied zuhause willkommen!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DONATION BANNER -->
+  <section class="donate-banner">
+    <div class="donate-content">
+      <h2>Kannst du kein Tier adoptieren?</h2>
+      <p>Unterstütze die Tierheime mit einer Geld- oder Sachspende — jede Hilfe zählt.</p>
+      <a href="#" class="btn btn-primary">Jetzt spenden</a>
+    </div>
+    <div class="donate-img">
+      <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600&q=80" alt="Tier im Tierheim" />
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="footer-logo">🐾 A Place to Belong</span>
+        <p>Eine Web-Plattform für Tierheime und Tieradoptionen. Entwickelt mit ❤️ von Eleonora, Maria Pia, Salma & Mihaela.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="gallery.html">Tiergalerie</a></li>
+          <li><a href="#">Spenden</a></li>
+          <li><a href="#">Kontakt</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Informationen</h4>
+        <ul>
+          <li><a href="#">Über uns</a></li>
+          <li><a href="#">Datenschutz</a></li>
+          <li><a href="#">Impressum</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 A Place to Belong · Free University of Bozen-Bolzano · WIE Projekt</p>
+    </div>
+  </footer>
+
+</body>
+</html>

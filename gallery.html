@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tiergalerie – A Place to Belong</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-logo">🐾 A Place to Belong</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="gallery.html" class="active">Tiere</a></li>
+      <li><a href="#">Spenden</a></li>
+      <li><a href="#">Kontakt</a></li>
+    </ul>
+    <a href="gallery.html" class="nav-cta">Jetzt adoptieren</a>
+    <button class="burger" aria-label="Menu">&#9776;</button>
+  </nav>
+
+  <!-- GALLERY HERO -->
+  <div class="gallery-hero">
+    <h1>Finde deinen Begleiter</h1>
+    <p>Alle Tiere suchen ein liebevolles Zuhause. Nutze die Filter, um das passende Tier zu finden.</p>
+  </div>
+
+  <!-- FILTERS -->
+  <div class="filters">
+    <button class="filter-btn active" data-filter="all">Alle</button>
+    <button class="filter-btn" data-filter="hund">🐶 Hunde</button>
+    <button class="filter-btn" data-filter="katze">🐱 Katzen</button>
+    <button class="filter-btn" data-filter="andere">🐇 Andere</button>
+    <select class="filter-select" id="ageFilter" aria-label="Nach Alter filtern">
+      <option value="">Alter</option>
+      <option value="jung">Jung (&lt; 1 Jahr)</option>
+      <option value="mittel">Mittel (1–5 Jahre)</option>
+      <option value="senior">Senior (&gt; 5 Jahre)</option>
+    </select>
+    <select class="filter-select" id="sizeFilter" aria-label="Nach Größe filtern">
+      <option value="">Größe</option>
+      <option value="klein">Klein</option>
+      <option value="mittel">Mittelgroß</option>
+      <option value="gross">Groß</option>
+    </select>
+  </div>
+
+  <!-- GALLERY GRID -->
+  <div class="gallery-grid" id="galleryGrid">
+
+    <article class="animal-card" data-species="hund" data-age="mittel" data-size="mittel">
+      <div class="card-img-wrap" style="height:220px">
+        <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=500&q=80" alt="Buddy" />
+        <span class="card-badge">Hund</span>
+        <div class="card-hover-info"><a href="#" class="btn-card">Profil ansehen</a></div>
+      </div>
+      <div class="card-body">
+        <div class="card-meta"><span class="card-name">Buddy</span><span class="card-age">2 Jahre</span></div>
+        <p class="card-breed">Beagle · Mittelgroß</p>
+        <p class="card-desc">Sehr süß, liebt Streicheleinheiten. Versteht sich gut mit Kindern.</p>
+        <div class="card-tags"><span class="tag">🏠 Kinderfreundlich</span></div>
+      </div>
+    </article>
+
+    <article class="animal-card" data-species="katze" data-age="jung" data-size="klein">
+      <div class="card-img-wrap" style="height:220px">
+        <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=500&q=80" alt="Mina" />
+        <span class="card-badge">Katze</span>
+        <div class="card-hover-info"><a href="#" class="btn-card">Profil ansehen</a></div>
+      </div>
+      <div class="card-body">
+        <div class="card-meta"><span class="card-name">Mina</span><span class="card-age">4 Monate</span></div>
+        <p class="card-breed">Hauskatze · Klein</p>
+        <p class="card-desc">Ruhiges Temperament, perfekt für eine ruhige Wohnung.</p>
+        <div class="card-tags"><span class="tag">🌿 Ruhig</span></div>
+      </div>
+    </article>
+
+    <article class="animal-card" data-species="hund" data-age="mittel" data-size="gross">
+      <div class="card-img-wrap" style="height:220px">
+        <img src="https://images.unsplash.com/photo-1558788353-f76d92427f16?w=500&q=80" alt="Aragorn" />
+        <span class="card-badge">Hund</span>
+        <div class="card-hover-info"><a href="#" class="btn-card">Profil ansehen</a></div>
+      </div>
+      <div class="card-body">
+        <div class="card-meta"><span class="card-name">Aragorn</span><span class="card-age">3 Jahre</span></div>
+        <p class="card-breed">Mischling · Groß</p>
+        <p class="card-desc">Aktiv, verspielt, liebt lange Spaziergänge.</p>
+        <div class="card-tags"><span class="tag">🏃 Aktiv</span></div>
+      </div>
+    </article>
+
+    <article class="animal-card" data-species="hund" data-age="jung" data-size="klein">
+      <div class="card-img-wrap" style="height:220px">
+        <img src="https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?w=500&q=80" alt="Almond" />
+        <span class="card-badge">Hund</span>
+        <div class="card-hover-info"><a href="#" class="btn-card">Profil ansehen</a></div>
+      </div>
+      <div class="card-body">
+        <div class="card-meta"><span class="card-name">Almond</span><span class="card-age">8 Monate</span></div>
+        <p class="card-breed">Mischling · Klein</p>
+        <p class="card-desc">Energiegeladen und neugierig, ideal für aktive Familien.</p>
+        <div class="card-tags"><span class="tag">🎾 Verspielt</span></div>
+      </div>
+    </article>
+
+    <article class="animal-card" data-species="katze" data-age="senior" data-size="klein">
+      <div class="card-img-wrap" style="height:220px">
+        <img src="https://images.unsplash.com/photo-1495360010541-f48722b34f7d?w=500&q=80" alt="Luna" />
+        <span class="card-badge">Katze</span>
+        <div class="card-hover-info"><a href="#" class="btn-card">Profil ansehen</a></div>
+      </div>
+      <div class="card-body">
+        <div class="card-meta"><span class="card-name">Luna</span><span class="card-age">7 Jahre</span></div>
+        <p class="card-breed">Perserkatze · Klein</p>
+        <p class="card-desc">Ruhig und liebevoll, sucht ein gemütliches Zuhause zum Entspannen.</p>
+        <div class="card-tags"><span class="tag">😴 Entspannt</span></div>
+      </div>
+    </article>
+
+    <article class="animal-card" data-species="andere" data-age="jung" data-size="klein">
+      <div class="card-img-wrap" style="height:220px">
+        <img src="https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?w=500&q=80" alt="Cotton" />
+        <span class="card-badge">Kaninchen</span>
+        <div class="card-hover-info"><a href="#" class="btn-card">Profil ansehen</a></div>
+      </div>
+      <div class="card-body">
+        <div class="card-meta"><span class="card-name">Cotton</span><span class="card-age">6 Monate</span></div>
+        <p class="card-breed">Zwergkaninchen · Klein</p>
+        <p class="card-desc">Sanft und neugierig, perfekt für Kinder als ersten Haustier.</p>
+        <div class="card-tags"><span class="tag">🏠 Kinderfreundlich</span></div>
+      </div>
+    </article>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="footer-logo">🐾 A Place to Belong</span>
+        <p>Eine Web-Plattform für Tierheime und Tieradoptionen.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="gallery.html">Tiergalerie</a></li>
+          <li><a href="#">Spenden</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Info</h4>
+        <ul>
+          <li><a href="#">Über uns</a></li>
+          <li><a href="#">Datenschutz</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 A Place to Belong · WIE Projekt · UniBZ</p>
+    </div>
+  </footer>
+
+  <!-- FILTER JS (base, verrà sostituito con AJAX al Lab 6) -->
+  <script>
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.animal-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const f = btn.dataset.filter;
+        cards.forEach(card => {
+          card.style.display = (f === 'all' || card.dataset.species === f) ? '' : 'none';
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
