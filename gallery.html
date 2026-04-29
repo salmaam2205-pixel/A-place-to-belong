@@ -31,9 +31,9 @@
   <!-- FILTERS -->
   <div class="filters">
     <button class="filter-btn active" data-filter="all">Alle</button>
-    <button class="filter-btn" data-filter="hund">🐶 Hunde</button>
-    <button class="filter-btn" data-filter="katze">🐱 Katzen</button>
-    <button class="filter-btn" data-filter="andere">🐇 Andere</button>
+    <button class="filter-btn" data-filter="hund">Hunde</button>
+    <button class="filter-btn" data-filter="katze">Katzen</button>
+    <button class="filter-btn" data-filter="andere">Andere</button>
     <select class="filter-select" id="ageFilter" aria-label="Nach Alter filtern">
       <option value="">Alter</option>
       <option value="jung">Jung (&lt; 1 Jahr)</option>
@@ -49,93 +49,7 @@
   </div>
 
   <!-- GALLERY GRID -->
-  <div class="gallery-grid" id="galleryGrid">
-
-    <article class="animal-card" data-species="hund" data-age="mittel" data-size="mittel">
-      <div class="card-img-wrap" style="height:220px">
-        <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=500&q=80" alt="Buddy" />
-        <span class="card-badge">Hund</span>
-        <div class="card-hover-info"><a href="#" class="btn-card">Profil ansehen</a></div>
-      </div>
-      <div class="card-body">
-        <div class="card-meta"><span class="card-name">Buddy</span><span class="card-age">2 Jahre</span></div>
-        <p class="card-breed">Beagle · Mittelgroß</p>
-        <p class="card-desc">Sehr süß, liebt Streicheleinheiten. Versteht sich gut mit Kindern.</p>
-        <div class="card-tags"><span class="tag">🏠 Kinderfreundlich</span></div>
-      </div>
-    </article>
-
-    <article class="animal-card" data-species="katze" data-age="jung" data-size="klein">
-      <div class="card-img-wrap" style="height:220px">
-        <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=500&q=80" alt="Mina" />
-        <span class="card-badge">Katze</span>
-        <div class="card-hover-info"><a href="#" class="btn-card">Profil ansehen</a></div>
-      </div>
-      <div class="card-body">
-        <div class="card-meta"><span class="card-name">Mina</span><span class="card-age">4 Monate</span></div>
-        <p class="card-breed">Hauskatze · Klein</p>
-        <p class="card-desc">Ruhiges Temperament, perfekt für eine ruhige Wohnung.</p>
-        <div class="card-tags"><span class="tag">🌿 Ruhig</span></div>
-      </div>
-    </article>
-
-    <article class="animal-card" data-species="hund" data-age="mittel" data-size="gross">
-      <div class="card-img-wrap" style="height:220px">
-        <img src="https://images.unsplash.com/photo-1558788353-f76d92427f16?w=500&q=80" alt="Aragorn" />
-        <span class="card-badge">Hund</span>
-        <div class="card-hover-info"><a href="#" class="btn-card">Profil ansehen</a></div>
-      </div>
-      <div class="card-body">
-        <div class="card-meta"><span class="card-name">Aragorn</span><span class="card-age">3 Jahre</span></div>
-        <p class="card-breed">Mischling · Groß</p>
-        <p class="card-desc">Aktiv, verspielt, liebt lange Spaziergänge.</p>
-        <div class="card-tags"><span class="tag">🏃 Aktiv</span></div>
-      </div>
-    </article>
-
-    <article class="animal-card" data-species="hund" data-age="jung" data-size="klein">
-      <div class="card-img-wrap" style="height:220px">
-        <img src="https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?w=500&q=80" alt="Almond" />
-        <span class="card-badge">Hund</span>
-        <div class="card-hover-info"><a href="#" class="btn-card">Profil ansehen</a></div>
-      </div>
-      <div class="card-body">
-        <div class="card-meta"><span class="card-name">Almond</span><span class="card-age">8 Monate</span></div>
-        <p class="card-breed">Mischling · Klein</p>
-        <p class="card-desc">Energiegeladen und neugierig, ideal für aktive Familien.</p>
-        <div class="card-tags"><span class="tag">🎾 Verspielt</span></div>
-      </div>
-    </article>
-
-    <article class="animal-card" data-species="katze" data-age="senior" data-size="klein">
-      <div class="card-img-wrap" style="height:220px">
-        <img src="https://images.unsplash.com/photo-1495360010541-f48722b34f7d?w=500&q=80" alt="Luna" />
-        <span class="card-badge">Katze</span>
-        <div class="card-hover-info"><a href="#" class="btn-card">Profil ansehen</a></div>
-      </div>
-      <div class="card-body">
-        <div class="card-meta"><span class="card-name">Luna</span><span class="card-age">7 Jahre</span></div>
-        <p class="card-breed">Perserkatze · Klein</p>
-        <p class="card-desc">Ruhig und liebevoll, sucht ein gemütliches Zuhause zum Entspannen.</p>
-        <div class="card-tags"><span class="tag">😴 Entspannt</span></div>
-      </div>
-    </article>
-
-    <article class="animal-card" data-species="andere" data-age="jung" data-size="klein">
-      <div class="card-img-wrap" style="height:220px">
-        <img src="https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?w=500&q=80" alt="Cotton" />
-        <span class="card-badge">Kaninchen</span>
-        <div class="card-hover-info"><a href="#" class="btn-card">Profil ansehen</a></div>
-      </div>
-      <div class="card-body">
-        <div class="card-meta"><span class="card-name">Cotton</span><span class="card-age">6 Monate</span></div>
-        <p class="card-breed">Zwergkaninchen · Klein</p>
-        <p class="card-desc">Sanft und neugierig, perfekt für Kinder als ersten Haustier.</p>
-        <div class="card-tags"><span class="tag">🏠 Kinderfreundlich</span></div>
-      </div>
-    </article>
-
-  </div>
+  <div class="gallery-grid" id="galleryGrid"></div>
 
   <!-- FOOTER -->
   <footer class="footer">
@@ -165,8 +79,28 @@
     </div>
   </footer>
 
-  <!-- FILTER JS (base, verrà sostituito con AJAX al Lab 6) -->
+  <!-- SCRIPTS -->
+  <script src="animals.js"></script>
   <script>
+    // Render all animals in gallery
+    const galleryGrid = document.getElementById('galleryGrid');
+    galleryGrid.innerHTML = animals.map(animal => `
+      <article class="animal-card" data-species="${animal.species.toLowerCase()}" data-age="${animal.ageGroup}" data-size="${animal.size}">
+        <div class="card-img-wrap" style="height:220px">
+          <img src="${animal.image}" alt="${animal.alt}" />
+          <span class="card-badge">${animal.badge}</span>
+          <div class="card-hover-info"><a href="#" class="btn-card">Profil ansehen</a></div>
+        </div>
+        <div class="card-body">
+          <div class="card-meta"><span class="card-name">${animal.name}</span><span class="card-age">${animal.age}</span></div>
+          <p class="card-breed">${animal.breed}</p>
+          <p class="card-desc">${animal.desc}</p>
+          <div class="card-tags">${animal.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}</div>
+        </div>
+      </article>
+    `).join('');
+
+    // Filter functionality
     const filterBtns = document.querySelectorAll('.filter-btn');
     const cards = document.querySelectorAll('.animal-card');
 

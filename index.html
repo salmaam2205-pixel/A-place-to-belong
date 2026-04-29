@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>A Place to Belong</title>
+  <title>🐾 A Place to Belong</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,700&family=Libre+Baskerville:wght@400;700&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
   <!-- NAVBAR -->
   <nav class="navbar">
-    <div class="nav-logo">🐾 A Place to Belong</div>
+    <div class="nav-logo">A Place to Belong</div>
     <ul class="nav-links">
       <li><a href="index.html" class="active">Home</a></li>
       <li><a href="gallery.html">Tiere</a></li>
@@ -30,7 +30,7 @@
     </div>
     <div class="hero-content">
       <span class="hero-tag">Tierheim Plattform</span>
-      <h1 class="hero-title">Jedes Tier verdient<br /><em>ein Zuhause.</em></h1>
+      <h1 class="hero-title"><span class="hero-main">Jedes Tier verdient</span><br /><span class="hero-highlight">ein Zuhause</span></h1>
       <p class="hero-sub">Finde deinen neuen besten Freund und gib einem Tier eine zweite Chance auf ein glückliches Leben.</p>
       <div class="hero-actions">
         <a href="gallery.html" class="btn btn-primary">Tiere entdecken</a>
@@ -74,76 +74,7 @@
       <p class="section-sub">Diese besonderen Tiere suchen dringend ein liebevolles Zuhause.</p>
     </div>
 
-    <div class="cards-grid">
-
-      <article class="animal-card">
-        <div class="card-img-wrap">
-          <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600&q=80" alt="Buddy" />
-          <span class="card-badge">Hund</span>
-          <div class="card-hover-info">
-            <a href="#" class="btn-card">Profil ansehen</a>
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="card-meta">
-            <span class="card-name">Buddy</span>
-            <span class="card-age">2 Jahre</span>
-          </div>
-          <p class="card-breed">Beagle · Mittelgroß</p>
-          <p class="card-desc">Sehr süß, liebt es gestreichelt zu werden. Versteht sich gut mit Kindern.</p>
-          <div class="card-tags">
-            <span class="tag">🏠 Kinderfreundlich</span>
-            <span class="tag">🐱 Katzenfreundlich</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="animal-card featured-card">
-        <div class="card-img-wrap">
-          <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600&q=80" alt="Mina" />
-          <span class="card-badge">Katze</span>
-          <span class="card-badge-special">⭐ Beliebt</span>
-          <div class="card-hover-info">
-            <a href="#" class="btn-card">Profil ansehen</a>
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="card-meta">
-            <span class="card-name">Mina</span>
-            <span class="card-age">4 Monate</span>
-          </div>
-          <p class="card-breed">Hauskatze · Schwarz</p>
-          <p class="card-desc">Sehr süß, liebt es gestreichelt zu werden. Ruhiges Temperament.</p>
-          <div class="card-tags">
-            <span class="tag">🌿 Ruhig</span>
-            <span class="tag">🏠 Wohnungskatze</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="animal-card">
-        <div class="card-img-wrap">
-          <img src="https://images.unsplash.com/photo-1558788353-f76d92427f16?w=600&q=80" alt="Aragorn" />
-          <span class="card-badge">Hund</span>
-          <div class="card-hover-info">
-            <a href="#" class="btn-card">Profil ansehen</a>
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="card-meta">
-            <span class="card-name">Aragorn</span>
-            <span class="card-age">3 Jahre</span>
-          </div>
-          <p class="card-breed">Mischling · Groß</p>
-          <p class="card-desc">Aktiv und verspielt, liebt lange Spaziergänge und neue Abenteuer.</p>
-          <div class="card-tags">
-            <span class="tag">🏃 Aktiv</span>
-            <span class="tag">🌲 Naturliebhaber</span>
-          </div>
-        </div>
-      </article>
-
-    </div>
+    <div class="cards-grid" id="cardsGrid"></div>
 
     <div class="featured-cta">
       <a href="gallery.html" class="btn btn-primary">Alle Tiere ansehen →</a>
@@ -159,25 +90,25 @@
     </div>
     <div class="hiw-steps">
       <div class="hiw-step">
-        <div class="step-icon">🔍</div>
+        <div class="step-icon"></div>
         <h3>1. Suchen</h3>
         <p>Durchsuche unsere Galerie mit Filtern nach Art, Alter, Größe und Kompatibilität.</p>
       </div>
       <div class="hiw-arrow">→</div>
       <div class="hiw-step">
-        <div class="step-icon">❤️</div>
+        <div class="step-icon"></div>
         <h3>2. Verlieben</h3>
         <p>Lies das Profil deines Wunschtiers und lerne seinen Charakter kennen.</p>
       </div>
       <div class="hiw-arrow">→</div>
       <div class="hiw-step">
-        <div class="step-icon">📋</div>
+        <div class="step-icon"></div>
         <h3>3. Anfragen</h3>
         <p>Fülle das Adoptionsformular aus — wir melden uns schnellstmöglich bei dir.</p>
       </div>
       <div class="hiw-arrow">→</div>
       <div class="hiw-step">
-        <div class="step-icon">🏡</div>
+        <div class="step-icon"></div>
         <h3>4. Willkommen</h3>
         <p>Heiß dein neues Familienmitglied zuhause willkommen!</p>
       </div>
@@ -188,7 +119,7 @@
   <section class="donate-banner">
     <div class="donate-content">
       <h2>Kannst du kein Tier adoptieren?</h2>
-      <p>Unterstütze die Tierheime mit einer Geld- oder Sachspende — jede Hilfe zählt.</p>
+      <p>Unterstütze die Tierheime mit einer Geld oder Sachspende: jede Hilfe zählt.</p>
       <a href="#" class="btn btn-primary">Jetzt spenden</a>
     </div>
     <div class="donate-img">
@@ -196,12 +127,46 @@
     </div>
   </section>
 
+  <!-- SCRIPTS -->
+  <script src="animals.js"></script>
+  <script>
+    // Render featured animals (first 3 from the animals array)
+    const cardsGrid = document.getElementById('cardsGrid');
+    cardsGrid.innerHTML = animals.slice(0, 3).map((animal, index) => {
+      let badgeSpecial = '';
+      if (index === 1) badgeSpecial = '<span class="card-badge-special">Beliebt</span>';
+      if (index === 2) badgeSpecial = '<span class="card-badge-special">Bereits adoptiert</span>';
+      
+      return `
+        <article class="animal-card ${index === 1 ? 'featured-card' : ''}">
+          <div class="card-img-wrap">
+            <img src="${animal.image}" alt="${animal.alt}" />
+            <span class="card-badge">${animal.badge}</span>
+            ${badgeSpecial}
+            <div class="card-hover-info">
+              <a href="#" class="btn-card">Profil ansehen</a>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-name">${animal.name}</span>
+              <span class="card-age">${animal.age}</span>
+            </div>
+            <p class="card-breed">${animal.breed}</p>
+            <p class="card-desc">${animal.desc}</p>
+            <div class="card-tags">${animal.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}</div>
+          </div>
+        </article>
+      `;
+    }).join('');
+  </script>
+
   <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-top">
       <div class="footer-brand">
-        <span class="footer-logo">🐾 A Place to Belong</span>
-        <p>Eine Web-Plattform für Tierheime und Tieradoptionen. Entwickelt mit ❤️ von Eleonora, Maria Pia, Salma & Mihaela.</p>
+        <span class="footer-logo"> 🐾 A Place to Belong</span>
+        <p>Eine Web-Plattform für Tierheime und Tieradoptionen. Entwickelt mit von Eleonora, Maria Pia, Salma & Mihaela.</p>
       </div>
       <div class="footer-links">
         <h4>Navigation</h4>
@@ -216,7 +181,6 @@
         <h4>Informationen</h4>
         <ul>
           <li><a href="#">Über uns</a></li>
-          <li><a href="#">Datenschutz</a></li>
           <li><a href="#">Impressum</a></li>
         </ul>
       </div>
