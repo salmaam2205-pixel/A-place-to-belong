@@ -1,0 +1,314 @@
+/* ===================================
+   adoption.css
+   Stili specifici per adoption.html
+   =================================== */
+ 
+/* Hero */
+.adoption-hero {
+  padding: 9rem 4% 3rem;
+  text-align: center;
+  background: var(--cream2);
+}
+ 
+.adoption-hero h1 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: var(--brown);
+  margin-bottom: .6rem;
+}
+ 
+.adoption-hero p {
+  color: var(--muted);
+  max-width: 500px;
+  margin: 0 auto;
+}
+ 
+/* Layout a due colonne */
+.adoption-layout {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2.5rem;
+  max-width: 1100px;
+  margin: 3rem auto;
+  padding: 0 4%;
+  align-items: start;
+}
+ 
+/* ---- Card anteprima animale (colonna sinistra) ---- */
+.animal-preview-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  overflow: hidden;
+  position: sticky;
+  top: 90px;
+}
+ 
+.preview-img {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+ 
+.preview-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+ 
+.animal-preview-info {
+  padding: 1.2rem;
+}
+ 
+.preview-name-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: .4rem;
+}
+ 
+.shelter-info {
+  padding: .9rem 1.2rem;
+  background: var(--cream);
+  border-top: 1px solid var(--cream2);
+  font-size: .82rem;
+  color: var(--muted);
+  line-height: 1.8;
+}
+ 
+.shelter-info strong {
+  color: var(--brown);
+}
+ 
+/* ---- Card del form (colonna destra) ---- */
+.form-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  padding: 2.5rem;
+}
+ 
+/* Sezioni del form */
+.form-section {
+  margin-bottom: 2.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--cream2);
+}
+ 
+.form-section:last-of-type {
+  border-bottom: none;
+}
+ 
+.form-section-title {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1rem;
+  color: var(--brown);
+  margin-bottom: 1.2rem;
+  padding-bottom: .5rem;
+  border-bottom: 2px solid var(--cream2);
+}
+ 
+/* Riga a due colonne dentro il form */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+ 
+/* Singolo campo */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+  margin-bottom: 1.1rem;
+}
+ 
+.form-group label {
+  font-size: .82rem;
+  font-weight: 600;
+  color: var(--brown);
+  text-transform: uppercase;
+  letter-spacing: .03em;
+}
+ 
+/* Input, select, textarea */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+select,
+textarea {
+  display: block;
+  width: 100%;
+  padding: .75rem 1rem;
+  border: 1.5px solid #ddd;
+  border-radius: 8px;
+  font-family: 'Nunito', sans-serif;
+  font-size: .92rem;
+  color: var(--text);
+  background: var(--cream);
+  outline: none;
+  transition: border-color .2s, background .2s;
+}
+ 
+input:focus, select:focus, textarea:focus {
+  border-color: var(--primary);
+  background: white;
+}
+ 
+textarea {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.6;
+}
+ 
+/* Contatore caratteri */
+.char-counter {
+  text-align: right;
+  font-size: .75rem;
+  color: var(--muted);
+}
+ 
+.char-counter.near-limit {
+  color: #e65100;
+}
+ 
+/* Checkbox */
+.checkbox-item {
+  display: flex;
+  align-items: flex-start;
+  gap: .7rem;
+  cursor: pointer;
+  margin-bottom: .6rem;
+  font-size: .88rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+ 
+.checkbox-item input[type="checkbox"] {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  accent-color: var(--primary);
+  /* reset stili generali */
+  display: inline;
+  padding: 0;
+  border: none;
+  background: none;
+  margin-bottom: 0;
+}
+ 
+.checkbox-item a {
+  color: var(--primary);
+  text-decoration: underline;
+}
+ 
+/* Bottone invio */
+button[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .2s, transform .2s;
+  margin-top: .5rem;
+}
+ 
+button[type="submit"]:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+}
+ 
+button[type="submit"]:disabled {
+  background: #aaa;
+  cursor: not-allowed;
+  transform: none;
+}
+ 
+/* ---- VALIDAZIONE ---- */
+ 
+/* Bordo rosso + sfondo rosso chiaro */
+input.invalid, textarea.invalid, select.invalid {
+  border: 2px solid #e74c3c !important;
+  background-color: #fdf2f2 !important;
+}
+ 
+/* Placeholder rosso (tutte le versioni cross-browser) */
+input.invalid::-webkit-input-placeholder,
+textarea.invalid::-webkit-input-placeholder {
+  color: #e74c3c !important;
+  font-weight: bold !important;
+}
+ 
+input.invalid::-moz-placeholder,
+textarea.invalid::-moz-placeholder {
+  color: #e74c3c !important;
+  font-weight: bold !important;
+  opacity: 1;
+}
+ 
+input.invalid::placeholder,
+textarea.invalid::placeholder {
+  color: #e74c3c !important;
+  font-weight: bold !important;
+  opacity: 1;
+}
+ 
+/* Messaggio di errore sotto il campo */
+.error-msg {
+  font-size: .78rem;
+  color: #c62828;
+  min-height: 1em;
+}
+ 
+/* Messaggio di successo */
+#successOverlay {
+  text-align: center;
+  padding: 3rem 2rem;
+}
+ 
+.success-icon {
+  font-size: 3rem;
+  margin-bottom: .5rem;
+}
+ 
+#successOverlay h3 {
+  font-family: 'Libre Baskerville', serif;
+  color: var(--brown);
+  font-size: 1.4rem;
+  margin-bottom: .6rem;
+}
+ 
+#successOverlay p {
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+ 
+/* Responsive */
+@media (max-width: 860px) {
+  .adoption-layout {
+    grid-template-columns: 1fr;
+  }
+ 
+  .animal-preview-card {
+    position: static;
+    max-width: 400px;
+  }
+ 
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+ 
+@media (max-width: 560px) {
+  .form-card {
+    padding: 1.5rem;
+  }
+}
