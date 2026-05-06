@@ -146,7 +146,7 @@
             <span class="card-badge">${animal.badge}</span>
             ${badgeSpecial}
             <div class="card-hover-info">
-              <a href="#" class="btn-card">Profil ansehen</a>
+              ${index === 2 ? '' : `<a href="adoption.html?animal=${animal.name}" class="btn-card">Profil ansehen</a>`}
             </div>
           </div>
           <div class="card-body">
