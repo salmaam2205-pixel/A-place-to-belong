@@ -5,15 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Adoption beantragen – A Place to Belong</title>
  
+  <!-- Globale Stile der grasamten Website -->
   <link rel="stylesheet" href="style.css" />
+  <!-- Seitenspezifische Stile für das Adoptionsformular -->
   <link rel="stylesheet" href="adoption.css" />
  
+   <!-- Google Fonts: Libre Baskerville für Überschriften, Nunito für Fließtext -->
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet" />
 </head>
  
 <body>
  
-<!-- NAVBAR -->
+<!-- ===================== NAVIGATIONSLEISTE ===================== -->
 <nav class="navbar">
   <div class="nav-logo">🐾 A Place to Belong</div>
   <ul class="nav-links">
@@ -22,38 +25,47 @@
   </ul>
 </nav>
  
-<!-- HERO -->
+<!-- ===================== HERO-BEREICH ===================== -->
+<!-- Großer Titelbereich am Seitenanfang -->
 <div class="adoption-hero">
   <h1>Adoptionsanfrage</h1>
   <p>Fülle das Formular aus und gib einem Tier eine zweite Chance.</p>
 </div>
  
+<!-- ===================== HAUPTBEREICH: ZWEISPALTIGES LAYOUT ===================== -->
 <div class="adoption-layout">
  
-  <!-- LINKE SPALTE: Tiervorschau -->
+   <!-- ── LINKE SPALTE: Vorschaukarte des Tieres ── -->
+  <!-- Wird durch adoption.js dynamisch mit Tierdaten befüllt (URL-Parameter ?animal=Name) -->
   <div class="animal-preview-card">
     <div class="preview-img">
+
+      <!-- Standardbild: wird durch JS überschrieben, falls ein Tier in der URL angegeben ist -->
       <img id="previewImg" src="xandi.jpeg" alt="Tier">
+      <!-- Badge zeigt die Tierart an (z. B. Hund, Katze) -->
       <span id="previewBadge" class="card-badge">Hund</span>
     </div>
     <div class="animal-preview-info">
+      <!-- Name und Alter des Tieres -->
       <div class="preview-name-row">
         <span id="previewName" class="card-name">Xandi</span>
         <span id="previewAge" class="card-age">3 Monate</span>
       </div>
+       <!-- Rasse und Kurzbeschreibung -->
       <p id="previewBreed" class="card-breed"></p>
       <p id="previewDesc" class="card-desc"></p>
     </div>
+    <!-- Statische Tierheim-Informationen -->
     <div class="shelter-info">
       <p><strong>Tierheim:</strong> Tierheim Bozen</p>
       <p><strong>Ref.-Nr.:</strong> TH-2026-0042</p>
     </div>
   </div>
  
-  <!-- RECHTE SPALTE: Formular -->
+  <!-- ── RECHTE SPALTE: Adoptionsformular ── -->
   <div class="form-card">
  
-    <!-- Erfolgs-Nachricht (versteckt) -->
+     <!-- Erfolgsmeldung: standardmäßig ausgeblendet, wird nach dem Absenden eingeblendet -->
     <div id="successOverlay" style="display:none;">
       <p class="success-icon">🐾</p>
       <h3>Anfrage gesendet!</h3>
@@ -61,16 +73,19 @@
       <a href="gallery.html" class="btn btn-primary">Weitere Tiere entdecken</a>
     </div>
  
+    <!-- Hauptformular: wird nach erfolgreichem Absenden ausgeblendet -->
     <form id="adoptionForm">
  
-      <!-- ── SEZIONE 1: Dati personali ── -->
+      <!-- ════════════ ABSCHNITT 1: Persönliche Daten ═══════════════ -->
       <div class="form-section">
         <h3 class="form-section-title">1. Persönliche Daten</h3>
  
+        <!-- Vor- und Nachname nebeneinander (zweispaltiges Raster) -->
         <div class="form-row">
           <div class="form-group">
             <label for="firstName">Vorname *</label>
             <input type="text" id="firstName" placeholder="Vorname">
+            <!-- Fehlermeldung wird durch JS eingeblendet -->
             <span class="error-msg" id="firstNameError"></span>
           </div>
           <div class="form-group">
@@ -80,18 +95,21 @@
           </div>
         </div>
  
+        <!-- Geburtsdatum: muss in der Vergangenheit liegen (Validierung in JS) -->
         <div class="form-group">
           <label for="birthdate">Geburtsdatum *</label>
           <input type="date" id="birthdate">
           <span class="error-msg" id="birthdateError"></span>
         </div>
  
+        <!-- E-Mail: Format wird per Regex validiert -->
         <div class="form-group">
           <label for="email">E-Mail-Adresse *</label>
           <input type="email" id="email" placeholder="deine@email.de">
           <span class="error-msg" id="emailError"></span>
         </div>
  
+        <!-- Telefonnummer: nur Ziffern und Sonderzeichen erlaubt -->
         <div class="form-group">
           <label for="phone">Telefonnummer *</label>
           <input type="tel" id="phone" placeholder="z. B. 333 123 4567">
@@ -99,16 +117,18 @@
         </div>
       </div>
  
-      <!-- ── SEZIONE 2: Informazioni abitative ── -->
+      <!-- ════════════ ABSCHNITT 2: Wohnsituation ═══════════════ -->
       <div class="form-section">
         <h3 class="form-section-title">2. Wohnsituation</h3>
  
+        <!-- Vollständige Adresse -->
         <div class="form-group">
           <label for="address">Adresse *</label>
           <input type="text" id="address" placeholder="Straße, Hausnummer, Stadt">
           <span class="error-msg" id="addressError"></span>
         </div>
  
+        <!-- Wohnform und Eigentumsverhältnis nebeneinander -->
         <div class="form-row">
           <div class="form-group">
             <label for="housingType">Wohnform *</label>
@@ -132,6 +152,7 @@
           </div>
         </div>
  
+         <!-- Optionale Felder: Garten und Mitbewohner -->
         <div class="form-row">
           <div class="form-group">
             <label for="garden">Garten vorhanden?</label>
@@ -154,10 +175,11 @@
         </div>
       </div>
  
-      <!-- ── SEZIONE 3: Esperienza con animali ── -->
+      <!-- ════════════ ABSCHNITT 3: Erfahrung mit Tieren ═══════════════ -->
       <div class="form-section">
         <h3 class="form-section-title">3. Erfahrung mit Tieren</h3>
  
+        <!-- Pflichtfeld: frühere Erfahrungen -->
         <div class="form-group">
           <label for="pastExperience">Frühere Erfahrungen mit Tieren *</label>
           <select id="pastExperience">
@@ -169,11 +191,13 @@
           <span class="error-msg" id="pastExperienceError"></span>
         </div>
  
+        <!-- Optionales Freitextfeld für konkrete Tierangaben -->
         <div class="form-group">
           <label for="pastAnimals">Welche Tiere hattest du früher?</label>
           <input type="text" id="pastAnimals" placeholder="z. B. Hund, Katze, Kaninchen…">
         </div>
  
+        <!-- Pflichtfeld: Bereitschaft für Tierarztkosten -->
         <div class="form-group">
           <label for="vetCare">Bereitschaft zu Tierarztkosten *</label>
           <select id="vetCare">
@@ -186,10 +210,11 @@
         </div>
       </div>
  
-      <!-- ── SEZIONE 4: Stile di vita ── -->
+      <!-- ════════════ ABSCHNITT 4: Lebenstil ═══════════════ -->
       <div class="form-section">
         <h3 class="form-section-title">4. Lebensstil</h3>
  
+        <!-- Pflichtfeld: wichtig für die Beurteilung der Eignung -->
         <div class="form-group">
           <label for="hoursAway">Stunden pro Tag außer Haus *</label>
           <select id="hoursAway">
@@ -201,6 +226,7 @@
           <span class="error-msg" id="hoursAwayError"></span>
         </div>
  
+        <!-- Optionales Feld: Reisehäufigkeit -->
         <div class="form-group">
           <label for="travelFrequency">Wie oft verreist du?</label>
           <select id="travelFrequency">
@@ -211,6 +237,7 @@
           </select>
         </div>
  
+        <!-- Pflichtfeld: Betreuungsplan bei Abwesenheit -->
         <div class="form-group">
           <label for="absenceplan">Was passiert mit dem Tier wenn du verreist? *</label>
           <input type="text" id="absenceplan" placeholder="z. B. Tierpension, Familie, Freunde…">
@@ -218,23 +245,26 @@
         </div>
       </div>
  
-      <!-- ── SEZIONE 5: Motivazione ── -->
+      <!-- ════════════ ABSCHNITT 5: Motivation ═══════════════ -->
       <div class="form-section">
         <h3 class="form-section-title">5. Motivation zur Adoption</h3>
  
+        <!-- Freitextfeld: mindestens 30 Zeichen, maximal 500 Zeichen (per JS begrenzt) -->
         <div class="form-group">
           <label for="motivation">Warum möchtest du dieses Tier adoptieren? *</label>
           <textarea id="motivation" rows="5" placeholder="Erzähl uns ein bisschen über dich und warum du der/die Richtige für dieses Tier bist… (mind. 30 Zeichen)"></textarea>
+          <!-- Zeichenzähler: wird in Echtzeit durch JS aktualisiert -->
           <div class="char-counter" id="charCounter">0 / 500</div>
           <span class="error-msg" id="motivationError"></span>
         </div>
       </div>
  
-      <!-- ── SEZIONE 6: Consensi ── -->
+      <!-- ════════════ ABSCHNITT 6: Einverständniserklärungen ═══════════════ -->
       <div class="form-section">
         <h3 class="form-section-title">6. Einverständnis</h3>
  
         <div class="form-group">
+          <!-- Beide Checkboxen müssen aktiviert sein (Validierung in JS) -->
           <label class="checkbox-item">
             <input type="checkbox" id="consentAdoption">
             <span>Ich akzeptiere die <a href="#">Adoptionsbedingungen</a>. *</span>
@@ -243,18 +273,20 @@
             <input type="checkbox" id="consentPrivacy">
             <span>Ich stimme der Verarbeitung meiner Daten gemäß der <a href="#">Datenschutzerklärung</a> zu. *</span>
           </label>
+          <!-- Fehlermeldung wenn eine oder beide Checkboxen fehlen -->
           <span class="error-msg" id="consentError"></span>
         </div>
       </div>
- 
-<button type="submit" id="submitBtn">Modular jetzt absenden →</button> 
+
+      <!-- Absende-Button: wird nach dem Klicken deaktiviert (verhindert Mehrfachübermittlung) -->
+       <button type="submit" id="submitBtn">Modular jetzt absenden →</button> 
 
     </form>
   </div>
 </div>
  
-<!-- FOOTER -->
-<footer class="footer">
+<!-- ===================== FUSSZEILE ===================== -->
+ <footer class="footer">
   <div class="footer-top">
     <div class="footer-brand">
       <span class="footer-logo">🐾 A Place to Belong</span>
@@ -273,7 +305,9 @@
   </div>
 </footer>
  
+<!-- Tierdaten-Array (wird von adoption.js für die Vorschaukarte benötigt) -->
 <script src="animals.js"></script>
+<!-- Formularlogik: Validierung, Zeichenzähler, Tiervorschau -->
 <script src="adoption.js"></script>
  
 </body>

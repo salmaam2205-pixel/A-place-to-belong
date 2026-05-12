@@ -1,18 +1,18 @@
 /* ===================================
    adoption.css
-   Stili specifici per adoption.html
+   Stile speziell für adoption.html
    =================================== */
  
-/* Hero */
+/* ---- Hero-Bereich: Überschrift und Untertitel ---- */
 .adoption-hero {
   padding: 9rem 4% 3rem;
   text-align: center;
-  background: var(--cream2);
+  background: var(--cream2); /* Hintergrundfarbe aus den globalen CSS-Variablen */
 }
  
 .adoption-hero h1 {
   font-family: 'Libre Baskerville', serif;
-  font-size: clamp(2rem, 5vw, 3rem);
+  font-size: clamp(2rem, 5vw, 3rem); /* Fluid Typography: passt sich der Bildschirmbreite an */
   color: var(--brown);
   margin-bottom: .6rem;
 }
@@ -20,13 +20,13 @@
 .adoption-hero p {
   color: var(--muted);
   max-width: 500px;
-  margin: 0 auto;
+  margin: 0 auto; /* Zentriert den Text horizontal */
 }
  
-/* Layout a due colonne */
+/* ---- Zweispaltiges Layout: Tiervorschau links, Formular rechts ---- */
 .adoption-layout {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr 2fr; /* Linke Spalte schmaler, rechte Spalte breiter */
   gap: 2.5rem;
   max-width: 1100px;
   margin: 3rem auto;
@@ -34,16 +34,17 @@
   align-items: start;
 }
  
-/* ---- Card anteprima animale (colonna sinistra) ---- */
+/* ---- Vorschaukarte (linke Spalte) ---- */
 .animal-preview-card {
   background: white;
   border-radius: 12px;
   box-shadow: 0 4px 16px rgba(0,0,0,0.1);
   overflow: hidden;
-  position: sticky;
+  position: sticky; /* Bleibt beim Scrollen sichtbar */
   top: 90px;
 }
  
+/* Bildcontainer mit fester Höhe */
 .preview-img {
   position: relative;
   height: 200px;
@@ -53,13 +54,15 @@
 .preview-img img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; /* Bild wird zugeschnitten, ohne verzerrt zu werden */
 }
  
+/* Textbereich unterhalb des Bildes */
 .animal-preview-info {
   padding: 1.2rem;
 }
  
+/* Zeile mit Name und Alter des Tieres */
 .preview-name-row {
   display: flex;
   justify-content: space-between;
@@ -67,6 +70,7 @@
   margin-bottom: .4rem;
 }
  
+/* Tierheim-Informationen am unteren Rand der Karte */
 .shelter-info {
   padding: .9rem 1.2rem;
   background: var(--cream);
@@ -80,7 +84,7 @@
   color: var(--brown);
 }
  
-/* ---- Card del form (colonna destra) ---- */
+/* ---- Formularkarte (rechte Spalte) ---- */
 .form-card {
   background: white;
   border-radius: 12px;
@@ -88,17 +92,19 @@
   padding: 2.5rem;
 }
  
-/* Sezioni del form */
+/* ---- Abschnitte des Formulars ---- */
 .form-section {
   margin-bottom: 2.5rem;
   padding-bottom: 2rem;
-  border-bottom: 1px solid var(--cream2);
+  border-bottom: 1px solid var(--cream2); /* Trennlinie zwischen Abschnitten */
 }
  
+/* Kein Trennstrich nach dem letzten Abschnitt */
 .form-section:last-of-type {
   border-bottom: none;
 }
  
+/* Überschrift jedes Formularabschnitts */
 .form-section-title {
   font-family: 'Libre Baskerville', serif;
   font-size: 1rem;
@@ -108,14 +114,14 @@
   border-bottom: 2px solid var(--cream2);
 }
  
-/* Riga a due colonne dentro il form */
+/* Zweispaltiges Raster innerhalb des Formulars */
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
 }
  
-/* Singolo campo */
+/* Einzelnes Formularfeld (Label + Input + Fehlermeldung) */
 .form-group {
   display: flex;
   flex-direction: column;
@@ -123,6 +129,7 @@
   margin-bottom: 1.1rem;
 }
  
+/* Beschriftung der Felder */
 .form-group label {
   font-size: .82rem;
   font-weight: 600;
@@ -131,7 +138,7 @@
   letter-spacing: .03em;
 }
  
-/* Input, select, textarea */
+/* Einheitliches Styling für alle Eingabetypen */
 input[type="text"],
 input[type="email"],
 input[type="tel"],
@@ -148,32 +155,35 @@ textarea {
   color: var(--text);
   background: var(--cream);
   outline: none;
-  transition: border-color .2s, background .2s;
+  transition: border-color .2s, background .2s; /* Weicher Übergang beim Fokussieren */
 }
  
+/* Fokuszustand: Rahmen und Hintergrund hervorheben */
 input:focus, select:focus, textarea:focus {
   border-color: var(--primary);
   background: white;
 }
  
+/* Mehrzeiliges Textfeld */
 textarea {
   resize: vertical;
   min-height: 120px;
   line-height: 1.6;
 }
  
-/* Contatore caratteri */
+/* Zeichenzähler unter dem Motivationsfeld */
 .char-counter {
   text-align: right;
   font-size: .75rem;
   color: var(--muted);
 }
- 
+
+/* Warnfarbe wenn das Limit fast erreicht ist (> 450 Zeichen) */ 
 .char-counter.near-limit {
   color: #e65100;
 }
  
-/* Checkbox */
+/* ---- Checkboxen ---- */
 .checkbox-item {
   display: flex;
   align-items: flex-start;
@@ -190,8 +200,8 @@ textarea {
   height: 17px;
   flex-shrink: 0;
   margin-top: 2px;
-  accent-color: var(--primary);
-  /* reset stili generali */
+  accent-color: var(--primary); /* Farbe des Hakens anpassen */
+  /* Globale Input-Stile zurücksetzen */
   display: inline;
   padding: 0;
   border: none;
@@ -204,7 +214,7 @@ textarea {
   text-decoration: underline;
 }
  
-/* Bottone invio */
+/* ---- Absende-Button ---- */
 button[type="submit"] {
   display: block;
   width: 100%;
@@ -212,7 +222,7 @@ button[type="submit"] {
   background: var(--primary);
   color: white;
   border: none;
-  border-radius: 50px;
+  border-radius: 50px; /* Abgerundeter Pillen-Button */
   font-family: 'Nunito', sans-serif;
   font-size: 1rem;
   font-weight: 700;
@@ -220,27 +230,31 @@ button[type="submit"] {
   transition: background .2s, transform .2s;
   margin-top: .5rem;
 }
- 
+
+/* Hover-Effekt: Farbe dunkler und leicht nach oben verschieben */ 
 button[type="submit"]:hover {
   background: var(--primary-dark);
   transform: translateY(-2px);
 }
  
+/* Deaktivierter Zustand während des Sendens */
 button[type="submit"]:disabled {
   background: #aaa;
   cursor: not-allowed;
   transform: none;
 }
  
-/* ---- VALIDAZIONE ---- */
+/* ===================================
+   VALIDIERUNGSSTILE
+   =================================== */
  
-/* Bordo rosso + sfondo rosso chiaro */
+/* Ungültiges Feld: roter Rahmen und hellroter Hintergrund */
 input.invalid, textarea.invalid, select.invalid {
   border: 2px solid #e74c3c !important;
   background-color: #fdf2f2 !important;
 }
  
-/* Placeholder rosso (tutte le versioni cross-browser) */
+/* Placeholder-Text in Rot bei ungültigen Feldern (cross-browser) */
 input.invalid::-webkit-input-placeholder,
 textarea.invalid::-webkit-input-placeholder {
   color: #e74c3c !important;
@@ -261,19 +275,22 @@ textarea.invalid::placeholder {
   opacity: 1;
 }
  
-/* Messaggio di errore sotto il campo */
+/* Fehlermeldung unterhalb eines Feldes */
 .error-msg {
   font-size: .78rem;
   color: #c62828;
-  min-height: 1em;
+  min-height: 1em; /* Verhindert Layout-Verschiebung beim Einblenden */
 }
  
-/* Messaggio di successo */
+/* ===================================
+   ERFOLGSMELDUNG (nach dem Absenden)
+   =================================== */
 #successOverlay {
   text-align: center;
   padding: 3rem 2rem;
 }
  
+/* Großes Emoji als visuelles Feedback */
 .success-icon {
   font-size: 3rem;
   margin-bottom: .5rem;
@@ -291,22 +308,27 @@ textarea.invalid::placeholder {
   margin-bottom: 1.5rem;
 }
  
-/* Responsive */
+/* ===================================
+   RESPONSIVE DESIGN
+   =================================== */
+/* Tablet und kleinere Bildschirme: einspaltiges Layout */
 @media (max-width: 860px) {
   .adoption-layout {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Spalten übereinander stapeln */
   }
  
   .animal-preview-card {
-    position: static;
+    position: static; /* Sticky-Verhalten deaktivieren auf kleinen Bildschirmen */
     max-width: 400px;
   }
  
+  /* Formularzeilen ebenfalls einspaltig */
   .form-row {
     grid-template-columns: 1fr;
   }
 }
  
+/* Mobilgeräte: weniger Innenabstand */
 @media (max-width: 560px) {
   .form-card {
     padding: 1.5rem;
