@@ -19,16 +19,16 @@ const animals = [
     ageGroup: "jung",
     size: "klein",
     badge: "Katze",
-    breed: "Hauskatze · Weiß und Grau",
+    breed: "Kleine Schildpattkatze",
     desc: "Sehr süß, liebt es gestreichelt zu werden. Ruhiges Temperament.",
     tags: ["Ruhig", "Wohnungskatze"],
-    image: "kitten.jpg",
+    image: "gattino_ele.jpeg",
     alt: "Lily"
   },
   {
     name: "Xandi",
     age: "3 Monate",
-    species: "hund",
+    species: "Hund",
     ageGroup: "jung",
     size: "klein",
     badge: "Hund",
@@ -37,7 +37,46 @@ const animals = [
     tags: ["Aktiv", "Naturliebhaber"],
     image: "xandi.jpeg",
     alt: "Xandi"
-  }
+  },
+  {
+    name: "Jack",
+    age: "3 Monate",
+    species: "Hund",
+    ageGroup: "jung",
+    size: "klein",
+    badge: "Hund",
+    breed: "Eine Mischung zweier Bullterrier-Rassen, höchstwahrscheinlich ein American Pit Bull Terrier oder ein American Staffordshire",
+    desc: "Ein süßer grau-weißer Welpe, der sich im Gras ausruht. Bereit für ein neues, liebevolles Zuhause.",
+    tags: ["Entspannt", "Aufmerksam"],
+    image: "puppy 2.jpg",
+    alt: "Jack"
+  },
+  {
+    name: "Luna",
+    age: "6 Jahre",
+    species: "Katze",
+    ageGroup: "Erwachsen",
+    size: "Mittelgroß",
+    badge: "Katze",
+    breed: "Hauskatze · Weiß und Grau",
+    desc: "Sehr zutraulich, genießt Streicheleinheiten.",
+    tags: ["Verschmust","Zutraulich"],
+    image: "stray-white-kitty.jpg",
+    alt: "Luna"
+  },
+  {
+    name: "Ruby",
+    age: "8 Jahre",
+    species: "Hund",
+    ageGroup: "Senior",
+    size: "Groß",
+    badge: "Hund",
+    breed: "Rottweiler-Labrador-Mix",
+    desc: "Sehr fröhlich und aufmerksam, genießt die Zeit im Freien.",
+    tags: ["Fröhlich", "Aufmerksam"],
+    image: "senior dog Kiya.jpg",
+    alt: "Ruby"
+  },
   // Add more animals...
 ];
 
