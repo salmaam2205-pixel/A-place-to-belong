@@ -35,6 +35,7 @@ const animals = [
     breed: "Langhaariger Deutscher Schäferhund",
     desc: "Aktiv und verspielt, liebt lange Spaziergänge und neue Abenteuer.",
     tags: ["Aktiv", "Naturliebhaber"],
+    adoption: true, //giá stato adottato
     image: "xandi.jpeg",
     alt: "Xandi"
   },
