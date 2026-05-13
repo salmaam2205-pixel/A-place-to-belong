@@ -177,8 +177,8 @@ ul { list-style: none; }
 .hero-tag {
   display: inline-block;
   padding: .35rem 1rem;
-  background: rgba(204,146,20,.25);
-  border: 1px solid rgba(204,146,20,.6);
+  background: transparent;
+  border: none;
   color: #f5d48a;
   border-radius: 50px;
   font-size: .8rem;
@@ -256,9 +256,29 @@ ul { list-style: none; }
 }
 .stat-item {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   padding: .5rem 3.5rem;
+  gap: 1.2rem;
+}
+.stat-icon {
+  width: 80px;
+  height: 80px;
+  background: #FBBA72;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: var(--white);
+  flex-shrink: 0;
+  line-height: 10;
+  padding: 0;
+}
+.stat-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 .stat-num {
   font-family: 'Libre Baskerville', serif;
@@ -287,11 +307,10 @@ ul { list-style: none; }
 }
 .section-tag {
   display: inline-block;
-  font-size: .78rem;
-  font-weight: 500;
-  text-transform: uppercase;
+  font-size: .95rem;
+  font-weight: 700;
   letter-spacing: .12em;
-  color: var(--ocra);
+  color: #CA5310;
   margin-bottom: .7rem;
 }
 .section-title {
