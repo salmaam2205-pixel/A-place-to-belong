@@ -9,7 +9,7 @@ const animals = [
     breed: "Nederlandse Hangoordwergen",
     desc: "Stubenrein und mit ganz viel Charakter ausgestattet, ist es bereit, dein Herz im Sturm zu erobern.",
     tags: ["Sozial", "Neugierig"],
-    image: "bunny.jpg",
+    image: "images/bunny.jpg",
     alt: "Bunny"
   },
   {
@@ -22,7 +22,7 @@ const animals = [
     breed: "Kleine Schildpattkatze",
     desc: "Sehr süß, liebt es gestreichelt zu werden. Ruhiges Temperament.",
     tags: ["Ruhig", "Wohnungskatze"],
-    image: "gattino_ele.jpeg",
+    image: "images/gattino_ele.jpeg",
     alt: "Lily"
   },
   {
@@ -36,7 +36,7 @@ const animals = [
     desc: "Aktiv und verspielt, liebt lange Spaziergänge und neue Abenteuer.",
     tags: ["Aktiv", "Naturliebhaber"],
     adoption: true, //giá stato adottato
-    image: "xandi.jpeg",
+    image: "images/xandi.jpeg",
     alt: "Xandi"
   },
   {
@@ -49,7 +49,7 @@ const animals = [
     breed: "Eine Mischung zweier Bullterrier-Rassen, höchstwahrscheinlich ein American Pit Bull Terrier oder ein American Staffordshire",
     desc: "Ein süßer grau-weißer Welpe, der sich im Gras ausruht. Bereit für ein neues, liebevolles Zuhause.",
     tags: ["Entspannt", "Aufmerksam"],
-    image: "puppy 2.jpg",
+    image: "images/puppy 2.jpg",
     alt: "Jack"
   },
   {
@@ -62,7 +62,7 @@ const animals = [
     breed: "Hauskatze · Weiß und Grau",
     desc: "Sehr zutraulich, genießt Streicheleinheiten.",
     tags: ["Verschmust","Zutraulich"],
-    image: "stray-white-kitty.jpg",
+    image: "images/stray-white-kitty.jpg",
     alt: "Luna"
   },
   {
@@ -75,7 +75,7 @@ const animals = [
     breed: "Rottweiler-Labrador-Mix",
     desc: "Sehr fröhlich und aufmerksam, genießt die Zeit im Freien.",
     tags: ["Fröhlich", "Aufmerksam"],
-    image: "senior dog Kiya.jpg",
+    image: "images/senior dog Kiya.jpg",
     alt: "Ruby"
   },
   {
@@ -88,7 +88,7 @@ const animals = [
     breed: "Orange Katze · Kurzhaar",
     desc: "Sehr gelassen und ruhig, liegt gerne entspannt auf dem Boden.",
     tags: ["Gelassen", "Entspannt"],
-    image: "cheddar.jpeg",
+    image: "images/cheddar.jpeg",
     alt: "Cheddar"
   },
   {
@@ -101,7 +101,7 @@ const animals = [
     breed: "Neuseeländisches Kaninchen · Weiß",
     desc: "Sehr ruhig und sanft, kuschelt sich gerne in weiche Decken.",
     tags: ["Ruhig", "Sanft"],
-    image: "white bunny.jpg",
+    image: "images/white bunny.jpg",
     alt: "Snowy"
   },
   {
@@ -114,7 +114,7 @@ const animals = [
     breed: "American pit bull terrier",
     desc: "Sehr freundlich und aufgeschlossen, freut sich sichtlich über Aufmerksamkeit.",
     tags: ["Freundlich", "Aufgeschlossen"],
-    image: "otto.jpg",
+    image: "images/otto.jpg",
     alt: "Otto"
   },
 ];
