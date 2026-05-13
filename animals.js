@@ -1,10 +1,10 @@
 const animals = [
   {
     name: "Bunny",
-    age: "9 Monate",
+    age: "4 Monate",
     species: "Häschen",
-    ageGroup: "jung",
-    size: "klein",
+    ageGroup: "Jung",
+    size: "Klein",
     badge: "Häschen",
     breed: "Nederlandse Hangoordwergen",
     desc: "Stubenrein und mit ganz viel Charakter ausgestattet, ist es bereit, dein Herz im Sturm zu erobern.",
@@ -16,8 +16,8 @@ const animals = [
     name: "Lily",
     age: "2 Monate",
     species: "Katze",
-    ageGroup: "jung",
-    size: "klein",
+    ageGroup: "Jung",
+    size: "Klein",
     badge: "Katze",
     breed: "Kleine Schildpattkatze",
     desc: "Sehr süß, liebt es gestreichelt zu werden. Ruhiges Temperament.",
@@ -29,8 +29,8 @@ const animals = [
     name: "Xandi",
     age: "3 Monate",
     species: "Hund",
-    ageGroup: "jung",
-    size: "klein",
+    ageGroup: "Jung",
+    size: "Klein",
     badge: "Hund",
     breed: "Langhaariger Deutscher Schäferhund",
     desc: "Aktiv und verspielt, liebt lange Spaziergänge und neue Abenteuer.",
@@ -42,8 +42,8 @@ const animals = [
     name: "Jack",
     age: "3 Monate",
     species: "Hund",
-    ageGroup: "jung",
-    size: "klein",
+    ageGroup: "Jung",
+    size: "Klein",
     badge: "Hund",
     breed: "Eine Mischung zweier Bullterrier-Rassen, höchstwahrscheinlich ein American Pit Bull Terrier oder ein American Staffordshire",
     desc: "Ein süßer grau-weißer Welpe, der sich im Gras ausruht. Bereit für ein neues, liebevolles Zuhause.",
@@ -77,7 +77,45 @@ const animals = [
     image: "senior dog Kiya.jpg",
     alt: "Ruby"
   },
-  // Add more animals...
+  {
+    name: "Cheddar",
+    age: "3 Jahre",
+    species: "Katze",
+    ageGroup: "Erwachsen",
+    size: "Mittelgroß",
+    badge: "Katze",
+    breed: "Orange Katze · Kurzhaar",
+    desc: "Sehr gelassen und ruhig, liegt gerne entspannt auf dem Boden.",
+    tags: ["Gelassen", "Entspannt"],
+    image: "cheddar.jpeg",
+    alt: "Cheddar"
+  },
+  {
+    name: "Snowy",
+    age: "9 Monate",
+    species: "Häschen",
+    ageGroup: "Jung",
+    size: "Klein",
+    badge: "Häschen",
+    breed: "Neuseeländisches Kaninchen · Weiß",
+    desc: "Sehr ruhig und sanft, kuschelt sich gerne in weiche Decken.",
+    tags: ["Ruhig", "Sanft"],
+    image: "white bunny.jpg",
+    alt: "Snowy"
+  },
+  {
+    name: "Otto",
+    age: "2 Jahre",
+    species: "Hund",
+    ageGroup: "Jung",
+    size: "Mittelgroß",
+    badge: "Hund",
+    breed: "American pit bull terrier",
+    desc: "Sehr freundlich und aufgeschlossen, freut sich sichtlich über Aufmerksamkeit.",
+    tags: ["Freundlich", "Aufgeschlossen"],
+    image: "otto.jpg",
+    alt: "Otto"
+  },
 ];
 
 function renderAnimalCard(animal) {
