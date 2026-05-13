@@ -1,1 +1,98 @@
+/* STILE SPECIFICO SPENDERPORTAL */
 
+body {
+    background-color: var(--cream);
+    color: var(--text);
+    padding-top: 100px;
+}
+
+.content-wrapper {
+    min-height: 80vh;
+    padding-bottom: 50px;
+}
+
+.section-title {
+    font-family: 'Libre Baskerville', serif;
+    color: var(--brown);
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+.card {
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: none;
+    overflow: hidden;
+    background: white;
+}
+
+.card-header {
+    background-color: var(--primary) !important;
+    color: white !important;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    padding: 15px;
+}
+
+.form-control {
+    background-color: var(--cream);
+    border: 1.5px solid rgba(105, 30, 6, 0.1);
+}
+
+.btn-outline-primary {
+    color: var(--primary);
+    border-color: var(--primary);
+}
+
+.btn-outline-primary:hover, .btn-check:checked + .btn-outline-primary {
+    background-color: var(--primary) !important; /* Forza lo sfondo */
+    border-color: var(--primary) !important;
+    color: white !important; /* La scritta rimarrà bianca e visibile */
+}
+
+
+/* 1. Toglie il bordo blu (alone) quando si clicca sui bottoni */
+.btn:focus, .btn-check:focus + .btn {
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+/* 2. Stile per la checkbox della privacy (colore coerente quando cliccata) */
+.form-check-input:checked {
+    background-color: var(--primary) !important;
+    border-color: var(--primary) !important;
+}
+
+/* 3. Stile per la nota dei campi obbligatori e link privacy */
+.text-muted.small {
+    font-family: 'Nunito', sans-serif;
+    font-style: italic;
+}
+
+.form-check-label a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.form-check-label a:hover {
+    text-decoration: underline;
+}
+
+.btn-submit {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: var(--accent-strong);
+    transform: translateY(-3px);
+}
