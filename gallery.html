@@ -33,7 +33,7 @@
     <button class="filter-btn active" data-filter="all">Alle</button>
     <button class="filter-btn" data-filter="hund">Hunde</button>
     <button class="filter-btn" data-filter="katze">Katzen</button>
-    <button class="filter-btn" data-filter="andere">Andere</button>
+    <button class="filter-btn" data-filter="häschen">Häschen</button>
     <select class="filter-select" id="ageFilter" aria-label="Nach Alter filtern">
       <option value="">Alter</option>
       <option value="jung">Jung (&lt; 1 Jahr)</option>
@@ -44,7 +44,7 @@
       <option value="">Größe</option>
       <option value="klein">Klein</option>
       <option value="mittel">Mittelgroß</option>
-      <option value="gross">Groß</option>
+      <option value="groß">Groß</option>
     </select>
   </div>
 
@@ -90,7 +90,9 @@
           <img src="${animal.image}" alt="${animal.alt}" />
           <span class="card-badge">${animal.badge}</span>
           <div class="card-hover-info">
-            ${animal.adopted ? '' : `<a href="adoption.html?animal=${animal.name}" class="btn-card">Profil ansehen</a>`}</div>      
+            ${animal.adopted ? '' : `<a href="adoption.html?animal=${animal.name}" class="btn-card">Profil ansehen</a>`}
+          </div>
+        </div>
         <div class="card-body">
           <div class="card-meta"><span class="card-name">${animal.name}</span><span class="card-age">${animal.age}</span></div>
           <p class="card-breed">${animal.breed}</p>
@@ -102,18 +104,48 @@
 
     // Filter functionality
     const filterBtns = document.querySelectorAll('.filter-btn');
+    const ageFilter = document.getElementById('ageFilter');
+    const sizeFilter = document.getElementById('sizeFilter');
     const cards = document.querySelectorAll('.animal-card');
+
+    function matchesAge(filterValue, cardAge) {
+      return !filterValue ||
+        (filterValue === 'jung' && cardAge === 'Jung') ||
+        (filterValue === 'mittel' && cardAge === 'Erwachsen') ||
+        (filterValue === 'senior' && cardAge === 'Senior');
+    }
+
+    function matchesSize(filterValue, cardSize) {
+      return !filterValue ||
+        (filterValue === 'klein' && cardSize === 'Klein') ||
+        (filterValue === 'mittel' && cardSize === 'Mittelgroß') ||
+        (filterValue === 'groß' && cardSize === 'Groß');
+    }
+
+    function updateGallery() {
+      const activeFilter = document.querySelector('.filter-btn.active').dataset.filter;
+      const selectedAge = ageFilter.value;
+      const selectedSize = sizeFilter.value;
+
+      cards.forEach(card => {
+        const matchesSpecies = activeFilter === 'all' || card.dataset.species === activeFilter;
+        const matchesAgeFilter = matchesAge(selectedAge, card.dataset.age);
+        const matchesSizeFilter = matchesSize(selectedSize, card.dataset.size);
+
+        card.style.display = matchesSpecies && matchesAgeFilter && matchesSizeFilter ? '' : 'none';
+      });
+    }
 
     filterBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         filterBtns.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        const f = btn.dataset.filter;
-        cards.forEach(card => {
-          card.style.display = (f === 'all' || card.dataset.species === f) ? '' : 'none';
-        });
+        updateGallery();
       });
     });
+
+    ageFilter.addEventListener('change', updateGallery);
+    sizeFilter.addEventListener('change', updateGallery);
   </script>
 
 </body>
