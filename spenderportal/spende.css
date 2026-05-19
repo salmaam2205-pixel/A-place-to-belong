@@ -92,7 +92,140 @@ body {
     transition: all 0.3s ease;
 }
 
+/* FOOTER */
+
+.footer-bottom {
+    padding-top: 1.6rem !important; 
+    padding-bottom: 1.6rem !important;
+}
+
+.footer-bottom p {
+    margin-bottom: 0 !important;
+    line-height: 1 !important; 
+}
+.footer-links ul {
+    padding-left: 0 !important;
+}
+
+
+/* Azzera lo spazio che Bootstrap aggiunge sotto e a sinistra delle liste */
+.footer-links ul {
+    gap: 0.5rem !important;
+    padding-left: 0 !important;
+    margin-bottom: 0 !important;
+    position: relative !important;
+    top: 0.5px !important; 
+}
+
+
+/* Ripristina lo spazio sopra e azzera quello sotto la descrizione brand */
+.footer-brand {
+
+    position: relative !important;
+    top: -4px !important; 
+}
+.footer-bottom p {
+    margin-bottom: 0 !important;
+}
+
+/* Effetto hover del bottone */
 .btn-submit:hover {
     background-color: var(--accent-strong);
     transform: translateY(-3px);
+}
+/*  Distanza esatta originale tra Titolo e Liste */
+.footer-links h4 {
+    margin-bottom: 1.1rem !important; 
+}
+/*  Margine sotto i titoli e ripristino del Grassetto (Bold) */
+.footer-links h4 {
+    margin-top: 0 !important; 
+    margin-bottom: 1rem !important; 
+    font-weight: bold !important; 
+    line-height: 1.2 !important;
+    position: relative !important; 
+    top: -3px !important; 
+}
+/*  Spaziatura originale tra le voci (Home, Tiergalerie, ecc.) */
+.footer-links ul {
+    gap: 0.5rem !important; 
+    padding-left: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+/* Grandezza testo e interlinea esatti per i link */
+.footer-links ul li {
+    font-size: 0.87rem !important;
+    line-height: 1.5 !important;
+}
+
+/* 4. Grandezza e interlinea per il testo descrittivo a sinistra */
+.footer-brand p {
+    font-size: 0.87rem !important;
+    line-height: 1.6 !important;
+    margin-top: -0.19rem !important;
+    margin-bottom: 0 !important;
+}
+
+.footer-top {
+    padding-top: 4.25rem !important; 
+}
+
+.btn-submit:hover {
+    background-color: var(--accent-strong);
+    transform: translateY(-3px);
+}
+/* ── CORREZIONE DEFINITIVA NAVBAR ── */
+
+.navbar .nav-links {
+    margin-bottom: 0 !important;
+    padding-left: 0 !important;
+    display: flex !important;
+    align-items: center !important; 
+    height: 100% !important;
+}
+
+.navbar .nav-links li {
+    margin-bottom: 0 !important;
+}
+
+.navbar .nav-links a {
+    line-height: 1 !important; 
+}
+
+
+.nav-btn-home {
+    display: inline-block !important;
+    padding-top: 0.7rem !important;    
+    padding-bottom: 0.65rem !important; 
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+    margin-top: 0.15rem !important;
+    margin-bottom: 0.15rem !important;
+    background-color: var(--primary) !important;
+    color: var(--white) !important;
+    border-radius: 50px !important;
+    font-family: 'DM Sans', sans-serif !important;
+    font-size: 0.95rem !important; /* Stesso identico font della Home */
+    font-weight: 500 !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+    border: 2px solid transparent !important;
+ 
+}
+
+.navbar { 
+    padding-top: 0.964rem !important;
+    padding-bottom: 0.964rem !important;
+} 
+
+/* Joystick per far scendere il logo */
+.nav-logo {
+    position: relative !important;
+    top: 2px !important; /* <-- Aumenta questo numero per spingere la scritta più giù */
+}
+.nav-btn-home:hover {
+    background-color: var(--accent-strong) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 20px rgba(202,83,16,.35) !important;
 }
