@@ -266,14 +266,12 @@ ul { list-style: none; }
   height: 80px;
   background: #FBBA72;
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  place-items: center;
   font-size: 2.5rem;
   color: var(--white);
   flex-shrink: 0;
-  line-height: 10;
-  padding: 0;
+  line-height: 1;
 }
 .stat-content {
   display: flex;
