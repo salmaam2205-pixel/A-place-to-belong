@@ -18,7 +18,7 @@
       
      
     </ul>
-    <a href="spenderportal/spende.html" class="btn btn-primary">Jetz Spenden</a>
+    <a href="spenderportal/spende.html" class="btn btn-primary">Jetzt Spenden</a>
     <button class="burger" aria-label="Menu">&#9776;</button>
   </nav>
 
@@ -50,6 +50,8 @@
 
   <!-- GALLERY GRID -->
   <div class="gallery-grid" id="galleryGrid"></div>
+  <p class="no-results" id="noResults">
+  Schade, noch kein Match!</p>
 
   <!-- FOOTER -->
   <footer class="footer">
@@ -116,6 +118,7 @@
     const ageFilter = document.getElementById('ageFilter');
     const sizeFilter = document.getElementById('sizeFilter');
     const cards = document.querySelectorAll('.animal-card');
+    const noResults = document.getElementById('noResults');
 
     function matchesAge(filterValue, cardAge) {
       return !filterValue ||
@@ -132,18 +135,26 @@
     }
 
     function updateGallery() {
-      const activeFilter = document.querySelector('.filter-btn.active').dataset.filter;
-      const selectedAge = ageFilter.value;
-      const selectedSize = sizeFilter.value;
+  const activeFilter = document.querySelector('.filter-btn.active').dataset.filter;
+  const selectedAge = ageFilter.value;
+  const selectedSize = sizeFilter.value;
+  let visibleCount = 0;
 
-      cards.forEach(card => {
-        const matchesSpecies = activeFilter === 'all' || card.dataset.species === activeFilter;
-        const matchesAgeFilter = matchesAge(selectedAge, card.dataset.age);
-        const matchesSizeFilter = matchesSize(selectedSize, card.dataset.size);
+  cards.forEach(card => {
+    const matchesSpecies = activeFilter === 'all' || card.dataset.species === activeFilter;
+    const matchesAgeFilter = matchesAge(selectedAge, card.dataset.age);
+    const matchesSizeFilter = matchesSize(selectedSize, card.dataset.size);
+    const isVisible = matchesSpecies && matchesAgeFilter && matchesSizeFilter;
 
-        card.style.display = matchesSpecies && matchesAgeFilter && matchesSizeFilter ? '' : 'none';
-      });
+    card.style.display = isVisible ? '' : 'none';
+
+    if (isVisible) {
+      visibleCount++;
     }
+  });
+
+  noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+}
 
     filterBtns.forEach(btn => {
       btn.addEventListener('click', () => {

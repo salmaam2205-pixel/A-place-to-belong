@@ -443,6 +443,16 @@ ul { list-style: none; }
   color: var(--primary-dark);
 }
 
+.no-results {
+  display: none;
+  max-width: 600px;
+  margin: 0 auto 6rem;
+  padding: 2rem 4%;
+  text-align: center;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
 .featured-card { border: 2px solid var(--ocra); }
 
 .featured-cta { text-align: center; }
