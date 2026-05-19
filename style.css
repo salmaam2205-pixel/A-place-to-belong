@@ -548,7 +548,7 @@ ul { list-style: none; }
 }
 .footer-top {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
   gap: 3rem;
   padding: 4rem 4% 3rem;
   max-width: 1300px;
@@ -573,6 +573,11 @@ ul { list-style: none; }
 .footer-links a {
   font-size: .87rem;
   transition: color var(--trans);
+}
+.footer-links ul li {
+  font-size : .87rem;
+  line-height: 1,6;
+  color: rgba (255,255,255, .75);
 }
 .footer-links a:hover { color: var(--ocra); }
 .footer-bottom {
