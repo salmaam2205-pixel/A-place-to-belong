@@ -94,6 +94,9 @@
   <script src="animals.js"></script>
   <script>
     // Render all animals in gallery
+    /*Injects an <article> card for every animal in the animals array.
+       Each card stores data-species, data-age, and data-size attributes
+       so the filter functions can show/hide cards without re-building all cards from scratch. */
     const galleryGrid = document.getElementById('galleryGrid');
     galleryGrid.innerHTML = animals.map(animal => `
       <article class="animal-card" data-species="${animal.species.toLowerCase()}" data-age="${animal.ageGroup}" data-size="${animal.size}">
@@ -114,12 +117,15 @@
     `).join('');
 
     // Filter functionality
+      //Grab all filter controls and the rendered card elements.
     const filterBtns = document.querySelectorAll('.filter-btn');
     const ageFilter = document.getElementById('ageFilter');
     const sizeFilter = document.getElementById('sizeFilter');
     const cards = document.querySelectorAll('.animal-card');
     const noResults = document.getElementById('noResults');
 
+    /* Returns true if the card's age group matches the selected filter value.
+       An empty filterValue means "no filter applied" → always matches. */
     function matchesAge(filterValue, cardAge) {
       return !filterValue ||
         (filterValue === 'jung' && cardAge === 'Jung') ||
@@ -127,6 +133,7 @@
         (filterValue === 'senior' && cardAge === 'Senior');
     }
 
+    /* Returns true if the card's size matches the selected filter value. */
     function matchesSize(filterValue, cardSize) {
       return !filterValue ||
         (filterValue === 'klein' && cardSize === 'Klein') ||
@@ -134,12 +141,16 @@
         (filterValue === 'groß' && cardSize === 'Groß');
     }
 
+    /* Core filter function: called whenever any filter changes.
+       Shows/hides each card based on all three active filters combined.
+       Displays the "no results" message if nothing is visible. */
     function updateGallery() {
   const activeFilter = document.querySelector('.filter-btn.active').dataset.filter;
   const selectedAge = ageFilter.value;
   const selectedSize = sizeFilter.value;
   let visibleCount = 0;
 
+  //A card must match species AND age AND size to be shown
   cards.forEach(card => {
     const matchesSpecies = activeFilter === 'all' || card.dataset.species === activeFilter;
     const matchesAgeFilter = matchesAge(selectedAge, card.dataset.age);
@@ -153,9 +164,12 @@
     }
   });
 
+  // Switch "no results" message visibility
   noResults.style.display = visibleCount === 0 ? 'block' : 'none';
 }
 
+/* ── EVENT LISTENERS ──
+       Species buttons: remove .active from all, add to clicked, then filter. */
     filterBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         filterBtns.forEach(b => b.classList.remove('active'));
@@ -164,6 +178,7 @@
       });
     });
 
+    /* Dropdown changes also trigger a full gallery refresh */
     ageFilter.addEventListener('change', updateGallery);
     sizeFilter.addEventListener('change', updateGallery);
   </script>

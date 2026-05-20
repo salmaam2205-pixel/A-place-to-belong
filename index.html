@@ -4,40 +4,52 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>🐾 A Place to Belong</title>
+  <!-- Google Fonts: Merriweather for hero title, Libre Baskerville for headings, Nunito for body -->
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,700&family=Libre+Baskerville:wght@400;700&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome icons (used in stats section) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Global stylesheet -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
   <!-- NAVBAR -->
+   <!-- Fixed top navigation bar with logo, links, and a CTA donate button -->
   <nav class="navbar">
     <div class="nav-logo">🐾 A Place to Belong</div>
     <ul class="nav-links">
       <li><a href="index.html" class="active">Home</a></li>
       <li><a href="gallery.html">Tiere</a></li>
     </ul>
-
+<!-- Primary CTA button linking to the donation portal -->
     <a href="spenderportal/spende.html" class="btn btn-primary">Jetzt Spenden</a>
-  
+  <!-- Hamburger button: hidden on desktop, shown on mobile via CSS -->
   <button class="burger" aria-label="Menu">&#9776;</button>
 </nav>
 
   <!-- HERO -->
   <section class="hero">
+    <!-- Background image layer -->
     <div class="hero-image-wrap">
       <img src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=1400&q=80" alt="Hund und Katze zusammen" class="hero-img" />
+      <!-- Dark gradient overlay for text legibility -->
       <div class="hero-overlay"></div>
     </div>
+
+    <!-- Foreground text content, animated with fadeUp CSS keyframe -->
     <div class="hero-content">
       <span class="hero-tag">Tierheim Plattform</span>
-      <h1 class="hero-title"><span class="hero-main">Jedes Tier verdient</span><br /><span class="hero-highlight">ein Zuhause</span></h1>
+      <h1 class="hero-title"><span class="hero-main">Jedes Tier verdient</span><br />
+        <!-- Italic accent text in gold/amber color -->
+        <span class="hero-highlight">ein Zuhause</span></h1>
       <p class="hero-sub">Finde deinen neuen besten Freund und gib einem Tier eine zweite Chance auf ein glückliches Leben.</p>
       <div class="hero-actions">
         <a href="gallery.html" class="btn btn-primary">Tiere entdecken</a>
+        <!-- Smooth-scrolls to the #how-it-works section below -->
         <a href="#how-it-works" class="btn btn-outline">Mehr erfahren</a>
       </div>
     </div>
+    <!-- Decorative scroll indicator (purely visual) -->
     <div class="hero-scroll">
       <span>Scroll</span>
       <div class="scroll-line"></div>
@@ -80,6 +92,7 @@
   </section>
 
   <!-- FEATURED ANIMALS -->
+   <!-- Shows the first 3 animals from animals.js; grid is populated by the inline script below -->
   <section class="featured">
     <div class="section-header">
       <span class="section-tag">warte auf dich ❤</span>
@@ -87,6 +100,7 @@
       <p class="section-sub">Diese besonderen Tiere suchen dringend ein liebevolles Zuhause.</p>
     </div>
 
+    <!-- Container filled dynamically by the script at the bottom of this file -->
     <div class="cards-grid" id="cardsGrid"></div>
 
     <div class="featured-cta">
@@ -129,6 +143,7 @@
   </section>
 
   <!-- DONATION BANNER -->
+   <!-- Two-column layout: text CTA on the left, decorative image on the right -->
   <section class="donate-banner">
     <div class="donate-content">
       <h2>Kannst du kein Tier adoptieren?</h2>
@@ -143,9 +158,12 @@
   <!-- SCRIPTS -->
   <script src="animals.js"></script>
   <script>
-    // Render featured animals (first 3 from the animals array)
+    // Grab the grid container defined in the Featured Animals section
     const cardsGrid = document.getElementById('cardsGrid');
+    // Render featured animals (first 3 from the animals array)
     cardsGrid.innerHTML = animals.slice(0, 3).map((animal, index) => {
+      
+      // Add a special secondary badge to the 2nd and 3rd cards
       let badgeSpecial = '';
       if (index === 1) badgeSpecial = '<span class="card-badge-special">Beliebt</span>';
       if (index === 2) badgeSpecial = '<span class="card-badge-special">Bereits adoptiert</span>';
