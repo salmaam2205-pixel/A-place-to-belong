@@ -6,7 +6,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   console.log("adoption.js caricato correttamente!");
  
-  /* ───── 1. TIERVORSCHAU AUS DER URL ───── */
+  /* ───── 1. TIERVORSCHAU AUS DER URL (AJAX) ───── */
   // Liest den URL-Parameter ?animal=Xandi aus und zeigt das entsprechende Tier an
   var params = new URLSearchParams(window.location.search);
   var animalName = params.get('animal');
@@ -226,7 +226,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var form = document.getElementById("adoptionForm");
  
   form.addEventListener("submit", function (e) {
-    // Standardverhalten des Browsers verhindern (kein Neuladen der Seite)
+    // Standardverhalten des Browsers verhindern (kein Neuladen der Seite) --> AJAX
     e.preventDefault();
     console.log("Tentativo di invio form...");
  
