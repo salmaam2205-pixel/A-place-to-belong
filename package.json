@@ -1,0 +1,13 @@
+{
+  "name": "a-place-to-belong",
+  "version": "1.0.0",
+  "description": "Backend per la piattaforma di adozioni A Place to Belong",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "sqlite3": "^5.1.7"
+  }
+}
