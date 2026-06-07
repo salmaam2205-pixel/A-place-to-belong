@@ -4,23 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tiergalerie – A Place to Belong</title>
+  <!-- Bootstrap Navbar -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
 </head>
 <body>
 
   <!-- NAVBAR -->
-  <nav class="navbar">
-    <div class="nav-logo">🐾 A Place to Belong</div>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="gallery.html" class="active">Tiere</a></li>
-      
-     
-    </ul>
-    <a href="spenderportal/spende.html" class="btn btn-primary">Jetzt Spenden</a>
-    <button class="burger" aria-label="Menu">&#9776;</button>
-  </nav>
+  <div id="site-nav"></div>
 
   <!-- GALLERY HERO -->
   <div class="gallery-hero">
@@ -54,41 +46,7 @@
   Schade, noch kein Match!</p>
 
   <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <span class="footer-logo">🐾 A Place to Belong</span>
-        <p>Eine Web-Plattform für Tierheime und Tieradoptionen.</p>
-      </div>
-      <div class="footer-links">
-        <h4>Navigation</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="gallery.html">Tiergalerie</a></li>
-          <li><a href="spenderportal/spende.html">Spenden</a></li>
-        </ul>
-      </div>
-      <div class="footer-links">
-        <h4>Info</h4>
-        <ul>
-          <li><a href="datenschutzen.html">Datenschutzerklärung</a></li>
-        </ul>
-      </div>
-      <div class="footer-links">
-      <h4>Kontakt</h4>
-      <ul>
-        <li>0471 123 456</li>
-        <li>+39 347 123 4567</li>
-        <li>+39 339 987 6228</li>
-        <li><a href="mailto:info@aplacetobelong.it">info@aplacetobelong.it</a></li>
-        <li>NoiTechPark straße, Bozen</li>
-      </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2026 A Place to Belong · WIE Projekt · UniBZ</p>
-    </div>
-  </footer>
+ <div id="site-footer"></div>
 
   <!-- SCRIPTS -->
   <script src="animals.js"></script>
@@ -185,5 +143,7 @@
     sizeFilter.addEventListener('change', updateGallery);
   </script>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="layout.js"></script>
 </body>
 </html>
