@@ -43,7 +43,7 @@
       <div class="footer-links">
         <h4>Info</h4>
         <ul>
-          <li><a href="/datenschutzen.html">Datenschutzerklärung</a></li>
+          <li><a href="/datenschutz.html">Datenschutzerklärung</a></li>
         </ul>
       </div>
       <div class="footer-links">
