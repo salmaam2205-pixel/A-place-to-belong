@@ -33,8 +33,29 @@
     <h2>4. Änderungen unserer Datenschutzbestimmungen</h2>
     <p>Wir behalten uns vor, diese Datenschutzerklärung anzupassen, damit sie stets den aktuellen rechtlichen Anforderungen entspricht oder um Änderungen unserer Leistungen in der Datenschutzerklärung umzusetzen.</p>
 
-    <a href="index.html" class="back-link">← Zurück zur Startseite</a>
+    <a href="#" class="back-link" id="backLink">← Zurück zur Startseite</a>
 </div>
+
+<script>
+    (function () {
+        var backLink = document.getElementById('backLink');
+        if (!backLink) return;
+
+        var params = new URLSearchParams(window.location.search);
+        var returnUrl = params.get('return');
+        if (returnUrl) {
+            var decodedReturnUrl = decodeURIComponent(returnUrl);
+            backLink.href = decodedReturnUrl;
+            if (decodedReturnUrl.indexOf('/spenderportal/spende.html') !== -1) {
+                backLink.textContent = '← Zurück zum Spendenformular';
+            } else if (decodedReturnUrl.indexOf('/adoption.html') !== -1) {
+                backLink.textContent = '← Zurück zum Adoptionsformular';
+            }
+        } else {
+            backLink.href = 'index.html';
+        }
+    })();
+</script>
 
 </body>
 </html>

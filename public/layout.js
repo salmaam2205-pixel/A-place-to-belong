@@ -5,7 +5,9 @@
   function active(file) { return page === file ? ' active' : ''; }
   var privacyHref = page === 'adoption.html'
     ? '/datenschutz-adoption.html?return=' + encodeURIComponent(location.pathname + location.search)
-    : '/datenschutz.html';
+    : page === 'spende.html'
+      ? '/datenschutz.html?return=' + encodeURIComponent(location.pathname + location.search)
+      : '/datenschutz.html';
  
   var navbar = `
   <nav class="navbar navbar-expand-lg fixed-top apb-navbar">
