@@ -62,23 +62,23 @@
                     <div class="card-body p-4">
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <label class="form-label small fw-bold">Vorname *</label>
-                                <input type="text" class="form-control" placeholder="Erika" required>
+                                <label for="firstName" class="form-label small fw-bold">Vorname *</label>
+                                <input type="text" class="form-control" id="firstName" placeholder="Erika" required>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label class="form-label small fw-bold">Nachname *</label>
-                                <input type="text" class="form-control" placeholder="Mustermann" required>
+                                <label for="lastName" class="form-label small fw-bold">Nachname *</label>
+                                <input type="text" class="form-control" id="lastName" placeholder="Mustermann" required>
                             </div>
                         </div>
  
                         <div class="mb-3">
-                            <label class="form-label small fw-bold">E-mail *</label>
+                            <label for="email" class="form-label small fw-bold">E-mail *</label>
                             <input type="email" class="form-control" id="email" inputmode="email"
                                    placeholder="erika.mustermann@example.com" required>
                         </div>
  
                         <div class="mb-3">
-                            <label class="form-label small fw-bold">Telefonnummer *</label>
+                            <label for="phone" class="form-label small fw-bold">Telefonnummer *</label>
                             <input type="tel" class="form-control cc-numeric" id="phone" maxlength="10"
                                    inputmode="tel" pattern="\d{10}" placeholder="0123456789" required>
                             <div class="invalid-feedback">Geben Sie eine gültige Telefonnummer ein (10 Stellen).</div>
@@ -90,13 +90,13 @@
                     <div class="card-header text-center py-3">3. Zahlungsart</div>
                     <div class="card-body p-4">
                         <div class="mb-3">
-                            <label class="form-label small fw-bold">Karterinhaber *</label>
-                            <input type="text" class="form-control" placeholder="Erika Mustermann" required>
-                            <div class="invalid-feedback">Bitte geben Sie den Namen des Karteninhabers ein.</div>
+                            <label for="ccName" class="form-label small fw-bold">Karteninhaber *</label>
+                            <input type="text" class="form-control" id="ccName" placeholder="Erika Mustermann" required>
+                        <div class="invalid-feedback">Bitte geben Sie den Namen des Karteninhabers ein.</div>
                         </div>
  
                         <div class="mb-3">
-                            <label class="form-label small fw-bold">Kartennummer *</label>
+                            <label for="cc-num" class="form-label small fw-bold">Kartennummer *</label>
                             <input type="text" class="form-control cc-numeric" id="cc-num"
                                    placeholder="1234 5678 1234 5678" maxlength="16" inputmode="numeric"
                                    pattern="\d{16}" required>
@@ -105,12 +105,12 @@
  
                         <div class="row">
                             <div class="col-6 mb-3">
-                                <label class="form-label small fw-bold">Ablaufdatum (MM/YY) *</label>
+                                <label for="cc-date" class="form-label small fw-bold">Ablaufdatum (MM/YY) *</label>
                                 <input type="text" class="form-control" id="cc-date" placeholder="12/26"
                                        maxlength="5" inputmode="numeric" pattern="(0[1-9]|1[0-2])\/\d{2}" required>
                             </div>
                             <div class="col-6 mb-3">
-                                <label class="form-label small fw-bold">CVV *</label>
+                                <label for="cc-cvv" class="form-label small fw-bold">CVV *</label>
                                 <input type="text" class="form-control cc-numeric" id="cc-cvv" placeholder="123"
                                        maxlength="3" inputmode="numeric" pattern="\d{3}" required>
                                 <div class="invalid-feedback">Geben Sie die 3-stellige Prüfziffer ein.</div>

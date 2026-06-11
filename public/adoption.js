@@ -302,13 +302,13 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
           alert(result.error || "Es ist ein Fehler aufgetreten.");
           submitBtn.disabled = false;
-          submitBtn.textContent = "Modular jetzt absenden →";
+          submitBtn.textContent = "Anfrage jetzt absenden →";
         }
       })
       .catch(function () {
         alert("Verbindung zum Server fehlgeschlagen.");
         submitBtn.disabled = false;
-        submitBtn.textContent = "Modular jetzt absenden →";
+        submitBtn.textContent = "Anfrage jetzt absenden →";
       });
   });
  

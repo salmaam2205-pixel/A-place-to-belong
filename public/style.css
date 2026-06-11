@@ -333,13 +333,13 @@ ul { list-style: none; }
 .btn-card {
   padding: .65rem 1.6rem;
   background: var(--white);
-  color: var(--green-d);
+  color: var(--primary);
   border-radius: 50px;
   font-size: .875rem;
   font-weight: 600;
   transition: all var(--trans);
 }
-.btn-card:hover { background: var(--ocra); color: var(--white); }
+.btn-card:hover { background: var(--accent); color: var(--white); }
 
 .card-body { padding: 1.4rem; }
 .card-meta {
@@ -360,7 +360,7 @@ ul { list-style: none; }
 }
 .card-breed {
   font-size: .82rem;
-  color: var(--green);
+  color: var(--accent-strong);
   font-weight: 500;
   margin-bottom: .7rem;
 }
@@ -389,7 +389,7 @@ ul { list-style: none; }
   font-size: 1.05rem;
 }
 
-.featured-card { border: 2px solid var(--ocra); }
+.featured-card { border: 2px solid var(--accent); }
 
 .featured-cta { text-align: center; }
 
@@ -521,9 +521,9 @@ ul { list-style: none; }
 .footer-links ul li {
   font-size : .87rem;
   line-height: 1,6;
-  color: rgba (255,255,255, .75);
+  color: rgba (255,255,255,.75);
 }
-.footer-links a:hover { color: var(--ocra); }
+.footer-links a:hover { color: var(--accent); }
 .footer-bottom {
   border-top: 1px solid rgba(255,255,255,.1);
   text-align: center;
