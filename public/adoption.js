@@ -1,6 +1,15 @@
 // ============================================================
 // adoption.js
 // Logik für das Adoptionsformular (Validierung, Vorschau, AJAX)
+//
+// Aufbau dieser Datei:
+// 1. Tiervorschau aus der URL (AJAX über ?animal=Name)
+// 2. Zeichenzähler für das Motivationsfeld
+// 3. Validierungsfunktionen für jedes Formularfeld
+// 4. Echtzeit-Fehlerentfernung während der Eingabe
+// 5. Formular absenden: Validierung + AJAX-POST an /api/adoptions (Express + SQLite)
+//
+// Architektur: animals.js = Model, adoption.html/.css = View, adoption.js = Controller
 // ============================================================
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -75,7 +84,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
  
-  // Prüft ob ein Textfeld ausgefüllt wurde (Pflichtfeld-Validierung)
+  // PFLICHTFELD-VALIDIERUNG: prüft, ob ein einfaches Textfeld ausgefüllt wurde
+  // Wird für firstName, lastName, address und absenceplan verwendet
   function checkRequired(fieldId, errorId, label) {
     var field = document.getElementById(fieldId);
     if (field.value.trim() === "") {
@@ -86,7 +96,9 @@ document.addEventListener("DOMContentLoaded", function () {
     return true;
   }
  
-  // Prüft ob eine Dropdown-Auswahl getroffen wurde
+  // DROPDOWN-VALIDIERUNG: prüft, ob bei einem <select> eine Option gewählt wurde
+  // (leerer Wert "" = noch nicht ausgewählt)
+  // Wird für housingType, ownership, pastExperience, vetCare und hoursAway verwendet
   function checkSelect(fieldId, errorId, label) {
     var field = document.getElementById(fieldId);
     if (field.value === "") {
@@ -101,7 +113,8 @@ document.addEventListener("DOMContentLoaded", function () {
     return true;
   }
  
-  // Prüft das E-Mail-Format mit einem regulären Ausdruck
+  // E-MAIL-VALIDIERUNG: prüft Pflichtfeld + Format mittels regulärem Ausdruck
+  // Die Regex verlangt das Muster "etwas@etwas.domain" (mind. 2 Zeichen nach dem Punkt)
   function checkEmail() {
     var field = document.getElementById("email");
     var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
@@ -121,7 +134,9 @@ document.addEventListener("DOMContentLoaded", function () {
     return true;
   }
  
-  // Prüft die Telefonnummer: erlaubt 7–15 Ziffern sowie Leerzeichen, Bindestriche, Klammern und Punkte
+  // TELEFON-VALIDIERUNG: prüft Pflichtfeld + Format mittels regulärem Ausdruck
+  // Erlaubt 7–15 Zeichen, bestehend aus Ziffern, Leerzeichen, Bindestrichen, Klammern und Punkten
+  // (z. B. "+39 333 123 4567" oder "(0471) 123-456")
   function checkPhone() {
     var field = document.getElementById("phone");
     var phoneRegex = /^[\d\s\-().]{7,15}$/;
@@ -139,7 +154,8 @@ document.addEventListener("DOMContentLoaded", function () {
     return true;
   }
  
-  // Prüft das Geburtsdatum: Pflichtfeld und muss in der Vergangenheit liegen
+  // GEBURTSDATUM-VALIDIERUNG: Pflichtfeld, das Datum muss in der Vergangenheit liegen
+  // (verhindert z. B. die Eingabe eines zukünftigen Datums durch Tippfehler)
   function checkBirthdate() {
     var field = document.getElementById("birthdate");
     if (field.value === "") {
@@ -160,7 +176,8 @@ document.addEventListener("DOMContentLoaded", function () {
     return true;
   }
  
-  // Prüft den Motivationstext: mindestens 30 Zeichen erforderlich
+  // MOTIVATIONS-VALIDIERUNG: das Freitextfeld muss mindestens 30 Zeichen enthalten
+  // Die Fehlermeldung zeigt zusätzlich die aktuell eingegebene Zeichenanzahl an
   function checkMotivation() {
     var field = document.getElementById("motivation");
     if (field.value.trim().length < 30) {
@@ -174,7 +191,8 @@ document.addEventListener("DOMContentLoaded", function () {
     return true;
   }
  
-  // Prüft ob beide Einverständnis-Checkboxen angehakt wurden
+  // EINVERSTÄNDNIS-VALIDIERUNG: die Datenschutz-Checkbox muss aktiviert sein,
+  // sonst darf das Formular nicht abgesendet werden (DSGVO-Anforderung)
    function checkConsents() {
     var privacy = document.getElementById("consentPrivacy");
     var errorEl = document.getElementById("consentError");
@@ -264,7 +282,10 @@ document.addEventListener("DOMContentLoaded", function () {
     submitBtn.disabled = true;
     submitBtn.textContent = "Wird gesendet…";
 
-    // raccogli i dati dai campi del form
+    // FORMULARDATEN SAMMELN: alle Werte aus den Eingabefeldern werden in einem
+    // JavaScript-Objekt zusammengefasst. Die Feldnamen entsprechen exakt den
+    // Spaltennamen der Tabelle "adoption_requests" in der SQLite-Datenbank
+    // (siehe database.js), damit der Server die Daten direkt speichern kann.
     var urlParams = new URLSearchParams(window.location.search);
     var data = {
       animal_name:      urlParams.get('animal') || '',
@@ -288,6 +309,9 @@ document.addEventListener("DOMContentLoaded", function () {
       consent_privacy:  document.getElementById('consentPrivacy').checked
     };
 
+    // AJAX-REQUEST OHNE SEITENNEULADEN: die Formulardaten werden als JSON
+    // per POST an den Express-Server gesendet (Endpoint /api/adoptions).
+    // Der Server validiert die Daten erneut und speichert sie in der SQLite-Datenbank.
     fetch('/api/adoptions', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -296,16 +320,20 @@ document.addEventListener("DOMContentLoaded", function () {
       .then(function (res) { return res.json(); })
       .then(function (result) {
         if (result.success) {
+          // ERFOLG: Formular ausblenden und Erfolgsmeldung (#successOverlay) anzeigen
           form.style.display = "none";
           document.getElementById("successOverlay").style.display = "block";
           window.scrollTo({ top: 0, behavior: "smooth" });
         } else {
+          // FEHLER VOM SERVER (z. B. Validierung schlägt fehl): Meldung anzeigen
+          // und Button wieder aktivieren, damit erneut gesendet werden kann
           alert(result.error || "Es ist ein Fehler aufgetreten.");
           submitBtn.disabled = false;
           submitBtn.textContent = "Anfrage jetzt absenden →";
         }
       })
       .catch(function () {
+        // NETZWERKFEHLER: Server nicht erreichbar (z. B. nicht gestartet)
         alert("Verbindung zum Server fehlgeschlagen.");
         submitBtn.disabled = false;
         submitBtn.textContent = "Anfrage jetzt absenden →";

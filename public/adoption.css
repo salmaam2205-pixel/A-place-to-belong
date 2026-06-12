@@ -1,6 +1,13 @@
 /* ===================================
    adoption.css
    Stile speziell für adoption.html
+
+   Wichtigste implementierte Funktionen:
+   - Zweispaltiges Layout mit CSS Grid (Tiervorschau links, Formular rechts)
+   - Sticky-Vorschaukarte (bleibt beim Scrollen sichtbar)
+   - Responsive Design mit zwei Breakpoints (860px und 560px)
+   - Eigene Validierungsstile (rote Umrandung + Fehlermeldung bei .invalid)
+   - Fluid Typography mit clamp() für die Überschrift
    =================================== */
  
 /* ---- Hero-Bereich: Überschrift und Untertitel ---- */

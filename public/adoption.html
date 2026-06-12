@@ -60,7 +60,8 @@
   <!-- ── RECHTE SPALTE: Adoptionsformular ── -->
   <div class="form-card">
  
-     <!-- Erfolgsmeldung: standardmäßig ausgeblendet, wird nach dem Absenden eingeblendet -->
+     <!-- Erfolgsmeldung: standardmäßig ausgeblendet (display:none), wird per JS eingeblendet
+          (in adoption.js), sobald der Server die Anfrage erfolgreich in der Datenbank gespeichert hat -->
     <div id="successOverlay" style="display:none;">
       <p class="success-icon">🐾</p>
       <h3>Anfrage gesendet!</h3>
@@ -68,7 +69,10 @@
       <a href="gallery.html" class="btn btn-primary">Weitere Tiere entdecken</a>
     </div>
  
-    <!-- Hauptformular: wird nach erfolgreichem Absenden ausgeblendet -->
+    <!-- Hauptformular: wird nach erfolgreichem Absenden ausgeblendet.
+         Die Werte aller Felder werden bei "submit" von adoption.js per AJAX (fetch)
+         als JSON an den Express-Endpoint POST /api/adoptions gesendet,
+         der sie nach erneuter Server-Validierung in der SQLite-Datenbank speichert. -->
     <form id="adoptionForm">
  
       <!-- ════════════ ABSCHNITT 1: Persönliche Daten ═══════════════ -->

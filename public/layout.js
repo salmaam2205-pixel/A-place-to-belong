@@ -1,14 +1,38 @@
-// layout.js — navbar (Bootstrap) e footer condivisi, uguali su OGNI pagina.
-// I link partono da "/" così funzionano sia dalla radice sia da sottocartelle (es. spenderportal/).
+// layout.js — gemeinsame Navbar (Bootstrap) und Footer, identisch auf JEDER Seite.
+//
+// Zweck: Statt Navbar/Footer in jede HTML-Datei zu kopieren, wird hier ein
+// HTML-String erzeugt und per JavaScript in die Elemente #site-nav / #site-footer
+// eingefügt. So muss eine Änderung (z. B. neuer Menüpunkt) nur an EINER Stelle
+// gemacht werden und wirkt sich auf alle Seiten aus.
+//
+// Wichtig: Alle Links beginnen mit "/" (root-relative), damit sie sowohl von der
+// Startseite als auch aus Unterordnern (z. B. /spenderportal/) korrekt funktionieren.
+// Das setzt voraus, dass die Seite über den Server (npm start, localhost:3000)
+// aufgerufen wird — nicht per Doppelklick auf die Datei (file://...).
 (function () {
+  // Aktuelle Seite anhand der URL ermitteln (z. B. "adoption.html")
   var page = location.pathname.split('/').pop() || 'index.html';
+
+  // Hilfsfunktion: gibt " active" zurück, wenn "file" der aktuellen Seite entspricht
+  // (wird genutzt, um den aktiven Navbar-Eintrag optisch hervorzuheben)
   function active(file) { return page === file ? ' active' : ''; }
+
+  // Der "Datenschutzerklärung"-Link im Footer soll nach dem Lesen wieder zur
+  // ursprünglichen Seite zurückführen. Deshalb wird je nach aktueller Seite
+  // ein passender ?return=... Parameter mit der aktuellen URL angehängt:
+  // - auf adoption.html  → datenschutz-adoption.html (mit Rücksprung zum Formular)
+  // - auf spende.html    → datenschutz.html (mit Rücksprung zum Spendenformular)
+  // - auf allen anderen Seiten → einfacher Link ohne Rücksprung
   var privacyHref = page === 'adoption.html'
     ? '/datenschutz-adoption.html?return=' + encodeURIComponent(location.pathname + location.search)
     : page === 'spende.html'
       ? '/datenschutz.html?return=' + encodeURIComponent(location.pathname + location.search)
       : '/datenschutz.html';
  
+  // NAVBAR: Bootstrap-Navbar mit Logo, Links zu Home/Tiere und einem
+  // hervorgehobenen "Jetzt Spenden"-Button. Die Klasse "active" wird
+  // dynamisch über die Funktion active() gesetzt, um die aktuelle Seite
+  // in der Navigation hervorzuheben.
   var navbar = `
   <nav class="navbar navbar-expand-lg fixed-top apb-navbar">
     <div class="container-fluid">
@@ -30,6 +54,8 @@
     </div>
   </nav>`;
  
+  // FOOTER: enthält Logo/Beschreibung, Navigationslinks, den dynamischen
+  // Datenschutz-Link (privacyHref) sowie statische Kontaktinformationen.
   var footer = `
   <footer class="footer">
     <div class="footer-top">
@@ -67,6 +93,11 @@
     </div>
   </footer>`;
  
+  // EINFÜGEN IN DIE SEITE
+  // Falls die Container-Elemente <div id="site-nav"> bzw. <div id="site-footer">
+  // auf der aktuellen Seite vorhanden sind, wird der erzeugte HTML-String dort
+  // eingefügt (innerHTML). Die Prüfung "if (...)" verhindert einen Fehler,
+  // falls eine Seite einen der beiden Container nicht enthält.
   var navMount = document.getElementById('site-nav');
   if (navMount) navMount.innerHTML = navbar;
   var footMount = document.getElementById('site-footer');
