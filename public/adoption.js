@@ -11,7 +11,7 @@
 //
 // Architektur: animals.js = Model, adoption.html/.css = View, adoption.js = Controller
 // ============================================================
-
+ 
 document.addEventListener("DOMContentLoaded", function () {
   console.log("adoption.js caricato correttamente!");
  
@@ -88,10 +88,27 @@ document.addEventListener("DOMContentLoaded", function () {
   // Wird für firstName, lastName, address und absenceplan verwendet
   function checkRequired(fieldId, errorId, label) {
     var field = document.getElementById(fieldId);
+    var errorEl = document.getElementById(errorId);
+ 
+    // Prüft ob das Pflichtfeld leer ist
     if (field.value.trim() === "") {
-      setInvalid(fieldId, errorId, label + " ist erforderlich.");
+      field.classList.add("invalid");
+      if (errorEl) errorEl.textContent = label + " ist erforderlich.";
       return false;
     }
+ 
+    // Für Vor- und Nachname: nur Buchstaben, Leerzeichen, Bindestriche und Apostrophe erlaubt
+    // Zahlen und Sonderzeichen werden abgelehnt
+    if (fieldId === "firstName" || fieldId === "lastName") {
+      var nameRegex = /^[a-zA-ZÀ-ÖØ-öø-ÿ\s\-']+$/;
+      if (!nameRegex.test(field.value.trim())) {
+        field.classList.add("invalid");
+        if (errorEl) errorEl.textContent = label + " darf keine Zahlen oder Sonderzeichen enthalten.";
+        return false;
+      }
+    }
+ 
+    // Feld ist gültig: Fehlerzustand entfernen
     setValid(fieldId, errorId);
     return true;
   }
@@ -281,7 +298,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var submitBtn = document.getElementById("submitBtn");
     submitBtn.disabled = true;
     submitBtn.textContent = "Wird gesendet…";
-
+ 
     // FORMULARDATEN SAMMELN: alle Werte aus den Eingabefeldern werden in einem
     // JavaScript-Objekt zusammengefasst. Die Feldnamen entsprechen exakt den
     // Spaltennamen der Tabelle "adoption_requests" in der SQLite-Datenbank
@@ -308,7 +325,7 @@ document.addEventListener("DOMContentLoaded", function () {
       motivation:       document.getElementById('motivation').value.trim(),
       consent_privacy:  document.getElementById('consentPrivacy').checked
     };
-
+ 
     // AJAX-REQUEST OHNE SEITENNEULADEN: die Formulardaten werden als JSON
     // per POST an den Express-Server gesendet (Endpoint /api/adoptions).
     // Der Server validiert die Daten erneut und speichert sie in der SQLite-Datenbank.
