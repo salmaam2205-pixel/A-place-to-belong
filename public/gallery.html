@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tiergalerie – A Place to Belong</title>
+  <!-- Bootstrap Navbar -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <div id="site-nav"></div>
+
+  <!-- GALLERY HERO -->
+  <div class="gallery-hero">
+    <h1>Finde deinen Begleiter</h1>
+    <p>Alle Tiere suchen ein liebevolles Zuhause. Nutze die Filter, um das passende Tier zu finden.</p>
+  </div>
+
+  <!-- FILTERS -->
+  <div class="filters">
+    <button class="filter-btn active" data-filter="all">Alle</button>
+    <button class="filter-btn" data-filter="hund">Hunde</button>
+    <button class="filter-btn" data-filter="katze">Katzen</button>
+    <button class="filter-btn" data-filter="häschen">Häschen</button>
+    <select class="filter-select" id="ageFilter" aria-label="Nach Alter filtern">
+      <option value="">Alter</option>
+      <option value="jung">Jung (&lt; 1 Jahr)</option>
+      <option value="mittel">Mittel (1–5 Jahre)</option>
+      <option value="senior">Senior (&gt; 5 Jahre)</option>
+    </select>
+    <select class="filter-select" id="sizeFilter" aria-label="Nach Größe filtern">
+      <option value="">Größe</option>
+      <option value="klein">Klein</option>
+      <option value="mittel">Mittelgroß</option>
+      <option value="groß">Groß</option>
+    </select>
+  </div>
+
+  <!-- GALLERY GRID -->
+  <div class="gallery-grid" id="galleryGrid"></div>
+  <p class="no-results" id="noResults">
+  Schade, noch kein Match!</p>
+
+  <!-- FOOTER -->
+ <div id="site-footer"></div>
+
+  <!-- SCRIPTS -->
+  <script src="animals.js"></script>
+  <script>
+    // Render all animals in gallery
+    /*Injects an <article> card for every animal in the animals array.
+       Each card stores data-species, data-age, and data-size attributes
+       so the filter functions can show/hide cards without re-building all cards from scratch. */
+    const galleryGrid = document.getElementById('galleryGrid');
+    galleryGrid.innerHTML = animals.map(animal => `
+      <article class="animal-card" data-species="${animal.species.toLowerCase()}" data-age="${animal.ageGroup}" data-size="${animal.size}">
+        <div class="card-img-wrap" style="height:220px">
+          <img src="${animal.image}" alt="${animal.alt}" />
+          <span class="card-badge">${animal.badge}</span>
+          <div class="card-hover-info">
+            ${animal.adoption
+            ? '<span class="card-badge-special">Bereits adoptiert</span>'
+            : `<a href="adoption.html?animal=${animal.name}" class="btn-card">Jetzt adoptieren</a>`}
+           </div>
+        </div>
+        <div class="card-body">
+          <div class="card-meta"><span class="card-name">${animal.name}</span><span class="card-age">${animal.age}</span></div>
+          <p class="card-breed">${animal.breed}</p>
+          <p class="card-desc">${animal.desc}</p>
+          <div class="card-tags">${animal.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}</div>
+        </div>
+      </article>
+    `).join('');
+
+    // Filter functionality
+      //Grab all filter controls and the rendered card elements.
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const ageFilter = document.getElementById('ageFilter');
+    const sizeFilter = document.getElementById('sizeFilter');
+    const cards = document.querySelectorAll('.animal-card');
+    const noResults = document.getElementById('noResults');
+
+    /* Returns true if the card's age group matches the selected filter value.
+       An empty filterValue means "no filter applied" → always matches. */
+    function matchesAge(filterValue, cardAge) {
+      return !filterValue ||
+        (filterValue === 'jung' && cardAge === 'Jung') ||
+        (filterValue === 'mittel' && cardAge === 'Erwachsen') ||
+        (filterValue === 'senior' && cardAge === 'Senior');
+    }
+
+    /* Returns true if the card's size matches the selected filter value. */
+    function matchesSize(filterValue, cardSize) {
+      return !filterValue ||
+        (filterValue === 'klein' && cardSize === 'Klein') ||
+        (filterValue === 'mittel' && cardSize === 'Mittelgroß') ||
+        (filterValue === 'groß' && cardSize === 'Groß');
+    }
+
+    /* Core filter function: called whenever any filter changes.
+       Shows/hides each card based on all three active filters combined.
+       Displays the "no results" message if nothing is visible. */
+    function updateGallery() {
+  const activeFilter = document.querySelector('.filter-btn.active').dataset.filter;
+  const selectedAge = ageFilter.value;
+  const selectedSize = sizeFilter.value;
+  let visibleCount = 0;
+
+  //A card must match species AND age AND size to be shown
+  cards.forEach(card => {
+    const matchesSpecies = activeFilter === 'all' || card.dataset.species === activeFilter;
+    const matchesAgeFilter = matchesAge(selectedAge, card.dataset.age);
+    const matchesSizeFilter = matchesSize(selectedSize, card.dataset.size);
+    const isVisible = matchesSpecies && matchesAgeFilter && matchesSizeFilter;
+
+    card.style.display = isVisible ? '' : 'none';
+
+    if (isVisible) {
+      visibleCount++;
+    }
+  });
+
+  // Switch "no results" message visibility
+  noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+}
+
+/* ── EVENT LISTENERS ──
+       Species buttons: remove .active from all, add to clicked, then filter. */
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        updateGallery();
+      });
+    });
+
+    /* Dropdown changes also trigger a full gallery refresh */
+    ageFilter.addEventListener('change', updateGallery);
+    sizeFilter.addEventListener('change', updateGallery);
+  </script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="layout.js"></script>
+</body>
+</html>

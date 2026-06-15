@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Datenschutzerklärung - A Place To Belong</title>
+    <link rel="stylesheet" href="datenschutz.css" />
+</head>
+
+<body>
+<!-- Hauptcontainer, der die gesamte Seite umschließt -->
+<div class="container"> 
+    <h1>Datenschutzerklärung</h1>
+    <p>Verantwortliche Stelle im Sinne der Datenschutzgesetze ist:</p>
+    
+    <!-- Box mit unseren Kontaktdaten -->
+    <div class="contact-box">
+        <strong>A Place to Belong</strong><br>
+        NoiTechPark straße<br>
+        39100 Bozen (BZ)<br>
+        E-Mail: info@aplacetobelong.it<br>
+        Tel: 0471 123 456
+    </div>
+    <!-- Datenschutzerklärung in 4 Themen: allgemeine Datenerfassung, Kontaktformular, Nutzerrechte und Änderungsvorbehalte.-->
+    <h2>1. Erfassung allgemeiner Informationen</h2>
+    <p>Wenn Sie auf unsere Webseite zugreifen, werden automatisch Informationen allgemeiner Natur erfasst. Diese Informationen (Server-Logfiles) beinhalten etwa die Art des Webbrowsers, das verwendete Betriebssystem und ähnliches. Dies ist technisch notwendig, um die von Ihnen angeforderten Inhalte von Webseiten korrekt auszuliefern.</p>
+
+    <h2>2. Kontaktformular (Adoptieren)</h2>
+    <p>Wenn Sie uns per E-Mail oder über das Adoptionsformular kontaktieren, werden die von Ihnen gemachten Angaben (Name, E-Mail-Adresse, Telefonnummer) zum Zwecke der Bearbeitung der Anfrage sowie für mögliche Anschlussfragen gespeichert. Wir geben diese Daten nicht ohne Ihre Einwilligung weiter.</p>
+
+    <h2>3. Ihre Rechte auf Auskunft, Berichtigung, Sperre und Löschung</h2>
+    <p>Sie haben das Recht, jederzeit Auskunft über Ihre bei uns gespeicherten personenbezogenen Daten zu erhalten. Ebenso haben Sie das Recht auf Berichtigung, Sperrung oder Löschung Ihrer personenbezogenen Daten, abgesehen von der vorgeschriebenen Datenspeicherung zur Geschäftsabwicklung.</p>
+
+    <h2>4. Änderungen unserer Datenschutzbestimmungen</h2>
+    <p>Wir behalten uns vor, diese Datenschutzerklärung anzupassen, damit sie stets den aktuellen rechtlichen Anforderungen entspricht oder um Änderungen unserer Leistungen in der Datenschutzerklärung umzusetzen.</p>
+
+    <!-- Zurück-Link -->
+    <a href="#" class="back-link" id="backToAdoption">← Zurück zur Adoptionsformular</a>
+</div>
+
+<!-- Setzt den Zurück-Link anhand des "return"-URL-Parameters, sonst adoption.html-->
+<script>
+    (function () {
+        var backLink = document.getElementById('backToAdoption');
+        if (!backLink) return;
+        var params = new URLSearchParams(window.location.search);
+        var returnUrl = params.get('return');
+        backLink.href = returnUrl ? decodeURIComponent(returnUrl) : 'adoption.html';
+    })();
+</script>
+
+</body>
+</html>

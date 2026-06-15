@@ -1,0 +1,13 @@
+{
+  "name": "a-place-to-belong",
+  "version": "1.0.0",
+  "description": "Backend (Node.js + Express + SQLite) für die Plattform 'A Place to Belong': liefert das Frontend aus und speichert Adoptionsanfragen in der Datenbank.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "sqlite3": "^6.0.1"
+  }
+}

@@ -1,0 +1,105 @@
+/* PAGE-SPECIFIC STYLES FOR DONATION PORTAL
+   (navbar e footer arrivano da style.css + layout.js, qui solo il form donazioni) */
+ 
+body {
+    background-color: var(--cream);
+    color: var(--text);
+    padding-top: 100px;   /* offset for the fixed navbar height */
+}
+ 
+.content-wrapper {
+    min-height: 80vh;    /* keeps the footer pushed down on short pages */
+    padding-bottom: 50px;
+}
+ 
+.section-title {
+    font-family: 'Libre Baskerville', serif;
+    color: var(--brown);
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+/* Override Bootstrap card defaults to match the site's design system */ 
+.card {
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: none;              /* removes Bootstrap's default border */
+    overflow: hidden;          /* clips child elements to rounded corners */
+    background: white;
+}
+ 
+.card-header {
+    background-color: var(--primary) !important;   /* !important overrides Bootstrap's bg-light default */
+    color: white !important;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    padding: 15px;
+}
+
+/* Light tinted background to visually connect inputs with the page background */
+.form-control {
+    background-color: var(--cream);
+    border: 1.5px solid rgba(105, 30, 6, 0.1);   /* subtle brand-colored border at low opacity */
+}
+
+/* Override Bootstrap blue with the site's primary brand color */
+.btn-outline-primary {
+    color: var(--primary);
+    border-color: var(--primary);
+}
+ 
+/* Filled state: on hover OR when the paired radio/checkbox is selected */
+.btn-outline-primary:hover,
+.btn-check:checked + .btn-outline-primary {
+    background-color: var(--primary) !important;
+    border-color: var(--primary) !important;
+    color: white !important;
+}
+ 
+/* Remove Bootstrap's default blue glow on button focus — keeps brand colors consistent */
+.btn:focus, .btn-check:focus + .btn {
+    box-shadow: none !important;
+    outline: none !important;
+}
+ 
+/* Override Bootstrap's default blue checkbox fill with the site's primary color */
+.form-check-input:checked {
+    background-color: var(--primary) !important;
+    border-color: var(--primary) !important;
+}
+ 
+.text-muted.small {
+    font-family: 'Nunito', sans-serif;
+    font-style: italic;
+}
+ 
+/* Privacy policy link — styled as plain bold text, underline only on hover */
+.form-check-label a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: bold;
+}
+ 
+.form-check-label a:hover {
+    text-decoration: underline;
+}
+ 
+/* Pill-shaped submit button with brand color */
+.btn-submit {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 50px;         /* fully rounded pill shape */
+    padding: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.3s ease;   /* smooth transition for hover effects */
+}
+ 
+/* On hover: shift to a stronger accent color and lift the button slightly */
+.btn-submit:hover {
+    background-color: var(--accent-strong);
+    transform: translateY(-3px);
+}
