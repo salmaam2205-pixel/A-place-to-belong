@@ -119,6 +119,7 @@ const animals = [
   },
 ];
 
+// Function to build a block of HTML for one animal card and return it as a string
 function renderAnimalCard(animal) {
   return `
     <article class="animal-card" data-species="${animal.species}" data-age="${animal.ageGroup}" data-size="${animal.size}">
