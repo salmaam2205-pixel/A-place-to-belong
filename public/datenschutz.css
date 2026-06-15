@@ -1,9 +1,12 @@
+/* Globale Farbvariablen für das gesamte Stylesheet */
 :root {
     --brown: #8B2E1E;
     --white: #ffffff;
     --text: #333333;
     --light-gray: #f9f9f9;
 }
+
+/* Grundstil der Seite: Schriftart, Zeilenabstand und hellgrauer Hintergrund */
 body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
@@ -13,6 +16,7 @@ body {
             background-color: var(--light-gray);
         }
 
+        /* Zentrierter weißer Inhaltsbereich mit Schatten und abgerundeten Ecken */
         .container {
             max-width: 800px;
             margin: 50px auto;
@@ -22,23 +26,27 @@ body {
             border-radius: 8px;
         }
 
+        /* Haupttitel in Braun mit unterstrichener Trennlinie */
         h1 {
             color: var(--brown);
             border-bottom: 2px solid var(--brown);
             padding-bottom: 10px;
         }
 
+        /* Zwischentitel in Braun, etwas kleiner als h1 */
         h2 {
             color: var(--brown);
             font-size: 1.4rem;
             margin-top: 30px;
         }
 
+        /* Einheitliche Schriftgröße und Abstand für Text und Listenelemente */
         p, li {
             font-size: 1rem;
             margin-bottom: 15px;
         }
 
+        /* Einheitliche Schriftgröße und Abstand für Text und Listenelemente */
         .contact-box {
             background: #fdf2f0;
             padding: 20px;
@@ -46,6 +54,7 @@ body {
             margin-top: 20px;
         }
 
+        /* Zurück-Link in Braun, fett und ohne Unterstreichung */
         .back-link {
             display: inline-block;
             margin-top: 30px;
@@ -54,6 +63,7 @@ body {
             font-weight: bold;
         }
 
+        /* Unterstreichung beim Hovern über den Zurück-Link */
         .back-link:hover {
             text-decoration: underline;
         }
