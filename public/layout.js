@@ -46,6 +46,7 @@
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
           <li class="nav-item"><a class="nav-link${active('index.html')}" href="/index.html">Home</a></li>
           <li class="nav-item"><a class="nav-link${active('gallery.html')}" href="/gallery.html">Tiere</a></li>
+          <li class="nav-item"><a class="nav-link${active('team.html')}" href="/team.html">Team</a></li>
           <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
             <a class="apb-cta" href="/spenderportal/spende.html">Jetzt Spenden</a>
           </li>
@@ -68,6 +69,7 @@
         <ul>
           <li><a href="/index.html">Home</a></li>
           <li><a href="/gallery.html">Tiergalerie</a></li>
+          <li><a href="/team.html">Team</a></li>
           <li><a href="/spenderportal/spende.html">Spenden</a></li>
         </ul>
       </div>
